@@ -1,0 +1,25 @@
+<div class="carousel-container-externo">
+  <div class="carousel">
+    <button class="nav prev" (click)="prev()">‹</button>
+
+    <div class="carousel-window">
+      <h1>Funcionalidades</h1>
+      
+      <div
+        class="carousel-track"
+        [style.transform]="'translateX(-' + currentIndex * (100 / step) + '%)'"
+      >
+        @for (slide of slides; track $index) {
+          <div class="slide">
+            <div class="card-inner">
+              <h3>{{ slide.title }}</h3>
+              <p>{{ slide.subtitle }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <button class="nav next" (click)="next()">›</button>
+  </div>
+</div>

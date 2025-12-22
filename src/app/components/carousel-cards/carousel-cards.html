@@ -1,0 +1,27 @@
+<div class="carousel-container">
+  <h1>
+    IGF Produtos
+  </h1>
+  <button class="nav prev" (click)="prev()" aria-label="Anterior">&#10094;</button>
+
+  <div class="carousel-window">
+    <div class="carousel-track" [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+      @for (slide of slides; track $index) {
+        <div class="slide">
+          @for (card of slide; track card.id) {
+            <div class="card">
+              <img [src]="card.image" alt="Imagem" />
+              <div class="card-content">
+                <h3>{{ card.title }}</h3>
+                <!-- <p>{{ card.text }}</p> -->
+                <app-buttons-produtos class="button"></app-buttons-produtos>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+
+  <button class="nav next" (click)="next()" aria-label="Próximo">&#10095;</button>
+</div>

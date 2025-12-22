@@ -1,0 +1,53 @@
+<header class="header">
+    <div class="header-container">
+
+        <div class="header-left">
+            <img src="/LogoIGF-Tech-PNG.png" alt="IGF Tech">
+        </div>
+
+        <nav class="header-center">
+            <a href="#">INÍCIO</a>
+            <a href="#">QUEM SOMOS</a>
+            <a href="#">SOLUÇÕES+</a>
+            <a href="#">PRODUTOS+</a>
+            <a href="#">CONTATOS</a>
+        </nav>
+
+        <div class="header-right">
+            <a href="#" class="btn-header">ORÇAMENTO →</a>
+        </div>
+
+    </div>
+</header>
+
+<div class="carousel">
+
+  <button class="nav prev" (click)="prev()">&#10094;</button>
+
+  <div class="carousel-window">
+    <div
+      class="carousel-track"
+      [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
+    >
+
+      @for (slide of slides; track $index) {
+        <div class="slide">
+          <img [src]="slide.image" alt="Slide image" />
+
+          <div class="content">
+            <h2>{{ slide.title }}</h2>
+            <p>{{ slide.description }}</p>
+
+            <button class="cta" (click)="slide.action()">
+              {{ slide.buttonText }}
+            </button>
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
+
+  <button class="nav next" (click)="next()">&#10095;</button>
+
+</div>

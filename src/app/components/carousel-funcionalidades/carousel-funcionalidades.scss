@@ -1,0 +1,102 @@
+// Container para garantir que o carrossel ocupe 80% e centralize
+.carousel-container-externo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: white; // Ou a cor de fundo da sua seção
+  padding: 2rem 0;
+
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  width: 80%; // Ocupa 80% da tela
+  position: relative;
+  z-index: 3;
+}
+
+.carousel-window {
+  overflow: hidden;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+h1 {
+  text-align: center;
+  padding-bottom: 1.5rem;
+  width: 100%;
+
+  font-size: 3.5rem;
+}
+
+.slide {
+  // Desktop: 3 itens (100 / 3 = 33.33%)
+  flex: 0 0 33.333%; 
+  padding: 10px;
+  box-sizing: border-box;
+
+  .card-inner {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius: 6px;
+    padding: 30px 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #E5E5E5;
+
+    h3 {
+      font-size: 1.7rem;
+      margin-bottom: 1.5rem;
+      min-height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #666;
+      flex-grow: 1;
+    }
+  }
+
+  // Responsividade: Tablet (2 itens)
+  @media (max-width: 1024px) {
+    flex: 0 0 50%;
+  }
+
+  // Responsividade: Mobile (1 item)
+  @media (max-width: 600px) {
+    flex: 0 0 100%;
+  }
+}
+
+/* --- SETAS --- */
+.nav {
+  background: none;
+  border: none;
+  font-size: 50px;
+  cursor: pointer;
+  color: #BC963D;
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 10;
+  
+  &.prev { left: -50px; } // Posiciona para fora dos 80%
+  &.next { right: -50px; }
+
+  @media (max-width: 1100px) {
+    // Traz as setas para dentro se a tela for pequena demais
+    &.prev { left: 0; }
+    &.next { right: 0; }
+  }
+}
