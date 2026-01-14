@@ -1,4 +1,6 @@
 .carousel-background {
+  // SE QUISER DEIXAR SEM O FUNDO BRANCO E O CAPACETE APARECENDO É SÓ TIRAR O POSITION: RELATIVE
+  position: relative;
   width: 100%;
   background-color: black; // Fundo 100% da tela
   padding: 60px 0;

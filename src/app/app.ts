@@ -14,12 +14,12 @@ import { ImagemSobreImagem } from './components/imagem-sobre-imagem/imagem-sobre
     RouterOutlet,
     Footer,
     Nav,
-    CarouselCards,
-    BoxComImg,
-    CarouselCards,
-    CarouselBoxesComponent,
-    CarouselFuncionalidades,
-    ImagemSobreImagem
+    // CarouselCards,
+    // BoxComImg,
+    // CarouselCards,
+    // CarouselBoxesComponent,
+    // CarouselFuncionalidades,
+    // ImagemSobreImagem
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

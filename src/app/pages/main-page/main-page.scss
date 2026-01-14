@@ -1,4 +1,4 @@
-body {
+section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,4 +47,272 @@ body {
   background-color: white;
 
   padding: 3rem;
+}
+
+
+
+
+// TESTE
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+
+    // background-color: black;
+
+    z-index: 3;
+
+    // background-color: black;
+}
+
+.solucao {
+    margin-top: -4px;
+}
+
+// .titleBeneficios {
+//     background-color: white;
+
+//     padding-top: 3rem;
+// }
+
+// h1 {
+//     margin-top: 0;
+
+//     text-align: center;
+
+//     position: relative;
+// }
+
+// p {
+//     position: relative;
+// }
+
+// .beneficios {
+//     width: 80%;
+    
+//   display: grid;
+//   grid-template-columns: repeat(3, 1fr);
+//   gap: 120px;
+
+//   background-color: white;
+//     z-index: 3;
+//     // position: relative;
+
+//     padding: 3rem 3rem;
+// }
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* canto esquerdo */
+  z-index: 1000;
+//   width: 60px;
+//   height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25d366;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float img {
+  width: 50px;
+  height: 50px;
+}
+
+.solucao {
+  background-color: rgba(255, 255, 255, 0.9);
+
+  padding: 3rem;
+}
+
+.gestao {
+    width: 100%;
+    max-height: 518px;
+}
+
+img {
+    position: relative;
+}
+
+.titleBeneficios {
+  // SE QUISER DEIXAR SEM O FUNDO BRANCO E O CAPACETE APARECENDO É SÓ TIRAR O Z-INDEX
+  z-index: 1;
+  background-color: white;
+  padding-top: 3rem;
+  
+  // Garante que todo o conteúdo interno (h1 e .beneficios) 
+  // seja tratado como um bloco flexível centralizado
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+}
+
+h1 {
+  margin-top: 4rem;
+  text-align: center;
+  width: 100%; // Garante que o texto centralize em relação à tela toda
+  position: relative;
+  font-size: 3.5rem;
+}
+
+p {
+    font-size: 1.25rem;
+    position: relative;
+}
+
+.beneficios {
+  width: 80%; // Sua largura desejada
+  max-width: 1300px; // Opcional: evita que fique largo demais em monitores gigantes
+  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 95px; // Reduzi um pouco os 120px para não quebrar o layout em telas menores
+  
+  background-color: white;
+  padding: 5rem 0 11rem 0; // Padding lateral removido para não interferir no centro
+  margin: 0 auto; // Centraliza o bloco grid horizontalmente
+  
+  // Responsividade para tablets e celulares
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.solucao {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 6rem;
+  margin-top: -4px;
+  
+  // ESSENCIAL: Transforma o container em um flexbox vertical centralizado
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+
+  h1 {
+    margin-top: 0;
+    text-align: center;
+    width: 100%; // Ocupa o topo todo centralizado
+    font-size: 3.5rem;
+  }
+
+  p {
+    width: 80%; // Largura que você solicitou
+    max-width: 1100px; // Evita que fique muito esticado em telas ultra-wide
+    text-align: center; // Centraliza o texto dentro do bloco de 80%
+    margin: 0 auto; // Garante a centralização horizontal do bloco
+    line-height: 1.6; // Melhora a legibilidade
+
+    text-align: justify;
+    font-size: 1.75rem;
+  }
+
+  // Responsividade para o parágrafo em telas menores
+  @media (max-width: 768px) {
+    p {
+      width: 95%; // Aumenta a largura no celular para aproveitar espaço
+    }
+  }
+}
+
+
+
+.solucao {
+  background-color: #E5E5E5;
+  padding: 6rem;
+  margin-top: -4px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  position: relative;
+}
+
+.solucao h1 {
+  margin-top: 0;
+  text-align: center;
+  width: 100%;
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.solucao-destaque {
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.9rem;
+  font-weight: 500;
+  text-align: center;
+  max-width: 1000px;
+  color: #333;
+}
+
+.solucao p {
+  width: 80%;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  font-size: 1.75rem;
+  line-height: 1.7;
+  color: #444;
+
+  text-align: justify;
+}
+
+.solucao p strong {
+  color: #000;
+  font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .solucao {
+    padding: 4rem 2rem;
+  }
+
+  .solucao h1 {
+    font-size: 2.8rem;
+  }
+
+  .solucao-destaque {
+    font-size: 1.6rem;
+  }
+
+  .solucao p {
+    width: 95%;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .solucao h1 {
+    font-size: 2.3rem;
+  }
+
+  .solucao-destaque {
+    font-size: 1.4rem;
+  }
+
+  .solucao p {
+    text-align: left;
+  }
 }

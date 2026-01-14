@@ -1,0 +1,129 @@
+/* Container centralizado */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Seção Principal */
+.about-section {
+      // SE QUISER DEIXAR SEM O FUNDO BRANCO E O CAPACETE APARECENDO É SÓ TIRAR O POSITION: RELATIVE
+    position: relative;
+  padding: 60px 0;
+  background-color: #fff;
+}
+
+/* Grid Layout */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+}
+
+/* Coluna Esquerda */
+.col-left h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8rem;
+  line-height: 1.1;
+  color: #11141a;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.col-left .text-content p {
+  margin-bottom: 20px;
+  color: #000;
+  font-size: 1rem;
+  text-align: justify;
+}
+
+/* Coluna Direita */
+.col-right .intro-text {
+  font-size: 1rem;
+  color: #000;
+  margin-bottom: 40px;
+}
+
+/* Container da imagem (tamanho fixo) */
+.image-placeholder {
+  width: 495px;
+  height: 295px;
+  background-color: #e6e6e6;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 4px;
+  overflow: hidden; /* ESSENCIAL para cortar corretamente */
+}
+
+/* Imagem ajustada perfeitamente ao container */
+.image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* CHAVE do layout correto */
+}
+
+/* Responsividade */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .col-left h1 {
+    font-size: 2.3rem;
+    text-align: left;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    max-width: 420px;
+    height: 280px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 40px 0;
+  }
+
+  .col-left h1 {
+    font-size: 1.9rem;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .col-left .text-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .col-right .intro-text {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    height: 220px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  .col-left h1 {
+    font-size: 1.6rem;
+  }
+
+  .image-placeholder {
+    height: 200px;
+  }
+}
+
