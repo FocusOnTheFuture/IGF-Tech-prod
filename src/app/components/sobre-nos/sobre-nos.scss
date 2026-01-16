@@ -47,7 +47,8 @@
 /* Container da imagem (tamanho fixo) */
 .image-placeholder {
   width: 495px;
-  height: 295px;
+  // height: 295px;
+  height: 100%;
   background-color: #e6e6e6;
 
   display: flex;
