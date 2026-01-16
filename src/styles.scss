@@ -1,3 +1,33 @@
+// directives
+
+.animate {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.from-left {
+  transform: translateX(-80px);
+}
+
+.from-right {
+  transform: translateX(80px);
+}
+
+.from-up {
+  transform: translateY(40px);
+}
+
+.from-down {
+  transform: translateY(-40px);
+}
+
+.show {
+  opacity: 1;
+  transform: translate(0);
+}
+
+
 /* You can add global styles to this file, and also import other style files */
 
 * {

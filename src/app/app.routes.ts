@@ -20,7 +20,7 @@ export const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {  scrollPositionRestoration: 'top', bindToComponentInputs: true })],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top', bindToComponentInputs: true })],
   exports: [RouterModule]
 })
 

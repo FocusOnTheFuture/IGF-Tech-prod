@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll';
 
 @Component({
-  selector: 'app-missao',
+  selector: 'app-nossos-valores',
   imports: [
     AnimateOnScrollDirective
   ],
-  templateUrl: './missao.html',
-  styleUrl: './missao.scss',
+  templateUrl: './nossos-valores.html',
+  styleUrl: './nossos-valores.scss',
 })
-export class Missao {
+export class NossosValores {
 
 }

@@ -1,12 +1,9 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal, inject, PLATFORM_ID } from '@angular/core';
+import { NavigationEnd, RouterOutlet, Router } from '@angular/router';
 import { Footer } from './components/footer/footer';
 import { Nav } from './components/nav/nav';
-import { CarouselCards } from './components/carousel-cards/carousel-cards';
-import { BoxComImg } from './components/box-com-img/box-com-img';
-import { CarouselBoxesComponent } from './components/carousel-boxes/carousel-boxes';
-import { CarouselFuncionalidades } from './components/carousel-funcionalidades/carousel-funcionalidades';
-import { ImagemSobreImagem } from './components/imagem-sobre-imagem/imagem-sobre-imagem';
+import { filter } from 'rxjs/operators';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -14,16 +11,22 @@ import { ImagemSobreImagem } from './components/imagem-sobre-imagem/imagem-sobre
     RouterOutlet,
     Footer,
     Nav,
-    // CarouselCards,
-    // BoxComImg,
-    // CarouselCards,
-    // CarouselBoxesComponent,
-    // CarouselFuncionalidades,
-    // ImagemSobreImagem
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
   protected readonly title = signal('site');
+
+  private platformId = inject(PLATFORM_ID);
+
+  constructor(private router: Router) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.router.events
+        .pipe(filter(event => event instanceof NavigationEnd))
+        .subscribe(() => {
+          window.scrollTo({ top: 0, behavior: 'auto' });
+        });
+    }
+  }
 }
