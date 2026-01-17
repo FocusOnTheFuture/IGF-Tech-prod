@@ -1,0 +1,43 @@
+.title {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.title h1 {
+    // font-size: min(10vw, 4rem);
+    font-weight:700;  
+    letter-spacing:1px; 
+    text-transform:uppercase; 
+    // width:fit-content; 
+    text-align:center; 
+    //   margin:auto; 
+    // white-space:nowrap; 
+    padding-bottom:13px;
+    
+    color: #c9a23a;
+
+    margin-top: 4rem;
+    // text-align: center;
+    // width: 100%; // Garante que o texto centralize em relação à tela toda
+    position: relative;
+    font-size: 3.5rem;
+}   
+
+// .title h1:before {
+//     background-color: #c50000;
+//     content: '';
+//     display: block;
+//     height: 3px;
+//     width: 75px;
+//     margin-bottom: 5px;
+// }
+
+.title h1:after {
+//   background-color: #c9a23a;
+  content: '';
+  display: block;
+  height: 3px;
+//   width: 75px;
+  margin: 0.25em 0 0 0; /* ← centraliza */
+}
