@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Importação obrigatória
 import { ButtonsProdutos } from '../buttons-produtos/buttons-produtos';
+import { TitleMainPage } from '../titles/title-main-page/title-main-page/title-main-page';
 
 interface Card {
   id: number;
@@ -14,7 +15,8 @@ interface Card {
   standalone: true,
   imports: [
     CommonModule,
-    ButtonsProdutos
+    ButtonsProdutos,
+    TitleMainPage
   ], // Certifique-se de que está aqui
   templateUrl: './carousel-cards.html',
   styleUrls: ['./carousel-cards.scss']

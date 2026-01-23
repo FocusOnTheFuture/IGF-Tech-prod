@@ -1,0 +1,110 @@
+.solucao {
+  background-color: rgba(255, 255, 255, 0.9);
+//   padding: 6rem;
+  margin-top: -4px;
+  
+  // ESSENCIAL: Transforma o container em um flexbox vertical centralizado
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+
+  h1 {
+    margin-top: 0;
+    text-align: center;
+    width: 100%; // Ocupa o topo todo centralizado
+    font-size: 3.5rem;
+  }
+
+  p {
+    width: 80%; // Largura que você solicitou
+    max-width: 1200px; // Evita que fique muito esticado em telas ultra-wide
+    text-align: center; // Centraliza o texto dentro do bloco de 80%
+    margin: 0 auto; // Garante a centralização horizontal do bloco
+    line-height: 1.6; // Melhora a legibilidade
+
+    text-align: justify;
+    font-size: 1.75rem;
+
+    font-family: sans-serif;
+  }
+
+  // Responsividade para o parágrafo em telas menores
+  @media (max-width: 768px) {
+    p {
+      width: 95%; // Aumenta a largura no celular para aproveitar espaço
+    }
+  }
+}
+
+
+
+.solucao {
+  background-color: #E5E5E5;
+//   padding: 6rem;
+  margin-top: -4px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  position: relative;
+}
+
+.solucao-destaque {
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.9rem;
+  font-weight: 500;
+  text-align: center;
+  max-width: 1000px;
+  color: #333;
+}
+
+.solucao p {
+  width: 80%;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  margin-bottom: 20px;
+
+  font-size: 1.75rem;
+  line-height: 1.7;
+  color: #444;
+
+  text-align: justify;
+}
+
+.solucao p strong {
+    ::ng-deep strong {
+        color: #000;
+        font-weight: 600;
+  }
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .solucao {
+    padding: 4rem 2rem;
+  }
+
+  .solucao-destaque {
+    font-size: 1.6rem;
+  }
+
+  .solucao p {
+    width: 95%;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .solucao-destaque {
+    font-size: 1.4rem;
+  }
+
+  .solucao p {
+    text-align: left;
+  }
+}

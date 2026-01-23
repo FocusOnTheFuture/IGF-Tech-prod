@@ -3,8 +3,8 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-titles',
   imports: [],
-  templateUrl: './titles.html',
-  styleUrl: './titles.scss',
+  templateUrl: './titles-quem-somos.html',
+  styleUrl: './titles-quem-somos.scss',
 })
 export class Titles {
   @Input()

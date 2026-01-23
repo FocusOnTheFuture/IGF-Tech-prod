@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TitleMainPage } from '../titles/title-main-page/title-main-page/title-main-page';
 
 interface Slide {
   title: string;
@@ -7,7 +8,9 @@ interface Slide {
 
 @Component({
   selector: 'app-carousel-funcionalidades',
-  imports: [],
+  imports: [
+    TitleMainPage
+  ],
   templateUrl: './carousel-funcionalidades.html',
   styleUrl: './carousel-funcionalidades.scss',
 })

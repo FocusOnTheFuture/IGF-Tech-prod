@@ -3,15 +3,16 @@
   box-sizing: border-box;
 }
 
-h1 {
-  text-align: center;
 
-  margin-top: 0;
+// h1 {
+//   text-align: center;
 
-  padding-top: 5rem;
+//   margin-top: 0;
 
-  font-size: 3.5rem;
-}
+//   padding-top: 5rem;
+
+//   font-size: 3.5rem;
+// }
 
 h3 {
   margin: 3rem 0;
@@ -23,6 +24,8 @@ h3 {
   // max-width: 1200px; /* Aumente um pouco para dar fôlego aos 3 cards */
   margin: auto;
   padding: 0; /* Removi o padding lateral daqui para ganhar espaço */
+
+  padding-top: 5rem;
 
   background-color: white;
 }

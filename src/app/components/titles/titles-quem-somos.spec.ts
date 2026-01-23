@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Titles } from './titles';
+import { Titles } from './title-quem-somos/titles-quem-somos';
 
 describe('Titles', () => {
   let component: Titles;
