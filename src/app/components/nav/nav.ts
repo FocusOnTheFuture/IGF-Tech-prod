@@ -13,6 +13,9 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./nav.scss']
 })
 export class Nav {
+  scrollTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 // currentIndex = 0;
 
 //   slides = [

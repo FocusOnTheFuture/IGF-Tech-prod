@@ -6,11 +6,11 @@
         </div>
 
         <nav class="header-center">
-            <a [routerLink]="['/home']">Início</a>
-            <a [routerLink]="['/quem-somos']">Quem somos</a>
-            <a [routerLink]="['/solucoes']">Serviços+</a>
-            <a [routerLink]="['/produtos']">Produtos+</a>
-            <a [routerLink]="['/contatos']">Contatos</a>
+            <a [routerLink]="['/home']" (click)=scrollTop()>Início</a>
+            <a [routerLink]="['/quem-somos']" (click)=scrollTop()>Quem somos</a>
+            <a [routerLink]="['/solucoes']" (click)=scrollTop()>Serviços+</a>
+            <a [routerLink]="['/produtos']" (click)=scrollTop()>Produtos+</a>
+            <a [routerLink]="['/contatos']" (click)=scrollTop()>Contatos</a>
         </nav>
 
         <div class="header-right">
