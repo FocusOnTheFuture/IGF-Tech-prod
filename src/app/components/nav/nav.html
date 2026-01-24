@@ -1,53 +1,19 @@
 <header class="header">
     <div class="header-container">
-
         <div class="header-left">
-            <img src="/LogoIGF-Tech-PNG.png" alt="IGF Tech">
+            <img src="/LogoIGF-Tech-PNG.png" alt="Logo IGF Tech">
         </div>
 
         <nav class="header-center">
-            <a [routerLink]="['/home']" (click)=scrollTop()>Início</a>
-            <a [routerLink]="['/quem-somos']" (click)=scrollTop()>Quem somos</a>
-            <a [routerLink]="['/solucoes']" (click)=scrollTop()>Serviços+</a>
-            <a [routerLink]="['/produtos']" (click)=scrollTop()>Produtos+</a>
-            <a [routerLink]="['/contatos']" (click)=scrollTop()>Contatos</a>
+            <a [routerLink]="['/home']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)=scrollTop()>Início</a>
+            <a [routerLink]="['/quem-somos']" routerLinkActive="active" (click)=scrollTop()>Quem somos</a>
+            <a [routerLink]="['/solucoes']" routerLinkActive="active" (click)=scrollTop()>Serviços+</a>
+            <a [routerLink]="['/produtos']" routerLinkActive="active" (click)=scrollTop()>Produtos+</a>
+            <a [routerLink]="['/contatos']" routerLinkActive="active" (click)=scrollTop()>Contatos</a>
         </nav>
 
         <div class="header-right">
             <a href="#" class="btn-header">ORÇAMENTO →</a>
         </div>
-
     </div>
 </header>
-
-<!-- <div class="carousel">
-
-  <button class="nav prev" (click)="prev()">&#10094;</button>
-
-  <div class="carousel-window">
-    <div
-      class="carousel-track"
-      [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
-    >
-
-      @for (slide of slides; track $index) {
-        <div class="slide">
-          <img [src]="slide.image" alt="Slide image" />
-
-          <div class="content">
-            <h2>{{ slide.title }}</h2>
-            <p>{{ slide.description }}</p>
-
-            <button class="cta" (click)="slide.action()">
-              {{ slide.buttonText }}
-            </button>
-          </div>
-        </div>
-      }
-
-    </div>
-  </div>
-
-  <button class="nav next" (click)="next()">&#10095;</button>
-
-</div> -->
