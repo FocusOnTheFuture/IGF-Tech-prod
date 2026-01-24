@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -13,8 +13,34 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./nav.scss']
 })
 export class Nav {
-    scrollTop() {
+  menuOpen = false;
+  touchStartX = 0;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
+
+  onNavigate() {
+    this.menuOpen = false;
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* Swipe para fechar */
+  @HostListener('touchstart', ['$event'])
+  onTouchStart(event: TouchEvent) {
+    this.touchStartX = event.changedTouches[0].clientX;
+  }
+
+  @HostListener('touchend', ['$event'])
+  onTouchEnd(event: TouchEvent) {
+    const touchEndX = event.changedTouches[0].clientX;
+    if (this.touchStartX - touchEndX > 80) {
+      this.closeMenu();
+    }
   }
 }
 

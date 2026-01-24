@@ -1,19 +1,58 @@
 <header class="header">
-    <div class="header-container">
-        <div class="header-left">
-            <img src="/LogoIGF-Tech-PNG.png" alt="Logo IGF Tech">
-        </div>
+  <div class="header-container">
 
-        <nav class="header-center">
-            <a [routerLink]="['/home']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)=scrollTop()>Início</a>
-            <a [routerLink]="['/quem-somos']" routerLinkActive="active" (click)=scrollTop()>Quem somos</a>
-            <a [routerLink]="['/solucoes']" routerLinkActive="active" (click)=scrollTop()>Serviços+</a>
-            <a [routerLink]="['/produtos']" routerLinkActive="active" (click)=scrollTop()>Produtos+</a>
-            <a [routerLink]="['/contatos']" routerLinkActive="active" (click)=scrollTop()>Contatos</a>
-        </nav>
-
-        <div class="header-right">
-            <a href="#" class="btn-header">ORÇAMENTO →</a>
-        </div>
+    <div class="header-left">
+      <img src="/LogoIGF-Tech-PNG.png" alt="Logo IGF Tech">
     </div>
+
+    <!-- Botão hamburguer -->
+    <button
+      class="menu-toggle"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-label="Abrir menu"
+      aria-controls="main-menu"
+    >
+      <span [class.open]="menuOpen"></span>
+      <span [class.open]="menuOpen"></span>
+      <span [class.open]="menuOpen"></span>
+    </button>
+
+    <!-- Overlay -->
+    <div
+      class="overlay"
+      *ngIf="menuOpen"
+      (click)="closeMenu()"
+    ></div>
+
+    <!-- Menu -->
+    <nav
+      id="main-menu"
+      class="header-center"
+      [class.open]="menuOpen"
+      role="navigation"
+    >
+      <a routerLink="/home"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="onNavigate()">Início</a>
+
+      <a routerLink="/quem-somos" routerLinkActive="active" (click)="onNavigate()">Quem somos</a>
+      <a routerLink="/solucoes" routerLinkActive="active" (click)="onNavigate()">Serviços+</a>
+      <a routerLink="/produtos" routerLinkActive="active" (click)="onNavigate()">Produtos+</a>
+      <a routerLink="/contatos" routerLinkActive="active" (click)="onNavigate()">Contatos</a>
+
+      <!-- CTA MOBILE -->
+      <a href="#"
+        class="btn-header mobile-cta"
+        (click)="onNavigate()">
+        ORÇAMENTO →
+      </a>
+    </nav>
+
+    <div class="header-right">
+      <a href="#" class="btn-header">ORÇAMENTO →</a>
+    </div>
+
+  </div>
 </header>
