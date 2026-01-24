@@ -39,6 +39,8 @@ body {
     padding: 0;
 
     width: 100%;
+
+    background-color: #E5E5E5;
 }
 
 html {
@@ -46,16 +48,16 @@ html {
   justify-content: center;
 }
 
-html::before {
-  content: "";
-  position: fixed; /* cobre a tela toda, mesmo com scroll */
-  inset: 0;
-  background-image: url("../public/background.png");
-  background-size: cover;
-  background-position: cover;
-  opacity: 0.6; /* deixa translúcida */
-  pointer-events: none; /* evita interferir em cliques */
-}
+// html::before {
+//   content: "";
+//   position: fixed; /* cobre a tela toda, mesmo com scroll */
+//   inset: 0;
+//   background-image: url("../public/background.png");
+//   background-size: cover;
+//   background-position: cover;
+//   opacity: 0.6; /* deixa translúcida */
+//   pointer-events: none; /* evita interferir em cliques */
+// }
 
 
 // /* Extra small devices (phones, 600px and down) */

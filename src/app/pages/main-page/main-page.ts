@@ -5,6 +5,8 @@ import { CarouselBoxesComponent } from '../../components/carousel-boxes/carousel
 import { ImagemSobreImagem } from '../../components/imagem-sobre-imagem/imagem-sobre-imagem';
 import { CarouselFuncionalidades } from '../../components/carousel-funcionalidades/carousel-funcionalidades';
 import { CarouselApresentation } from '../../components/carousel-apresentation/carousel-apresentation';
+import { TitleMainPage } from '../../components/titles/title-main-page/title-main-page/title-main-page';
+import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll';
 
 
 @Component({
@@ -16,7 +18,9 @@ import { CarouselApresentation } from '../../components/carousel-apresentation/c
     CarouselBoxesComponent,
     ImagemSobreImagem,
     CarouselFuncionalidades,
-    CarouselApresentation
+    CarouselApresentation,
+    TitleMainPage,
+    AnimateOnScrollDirective
   ],
   templateUrl: './main-page.html',
   styleUrl: './main-page.scss',

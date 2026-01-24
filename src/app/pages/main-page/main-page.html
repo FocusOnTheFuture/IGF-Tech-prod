@@ -4,15 +4,18 @@
 
     <div>
         <div class="solucao">
-            <h1>
-                Gestão Inteligente de Ativos com RFID UHF e IoT
-            </h1>
+
+            <app-title-main-page class="title" labelTitleMainPage="Gestão Inteligente de Ativos com RFID UHF e IoT"></app-title-main-page>
             
-            <p class="solucao-destaque">
+            <p class="solucao-destaque" appAnimateOnScroll
+                    direction="down"
+                    [delay]="0">
                 Controle total, rastreabilidade precisa e monitoramento em tempo real dos seus ativos e ambientes.
             </p>
             
-            <p>
+            <p appAnimateOnScroll
+                    direction="down"
+                    [delay]="0">
                 Nossa solução de gestão de ativos utiliza tecnologia <strong>RFID UHF integrada à IoT</strong> para oferecer
                 <strong>monitoramento automatizado</strong> e <strong>controle preciso</strong> de ativos fixos, móveis e ambientes.
                 Por meio de <strong>software inteligente</strong>, <strong>controle de acesso</strong>, <strong>antenas</strong> e
@@ -30,9 +33,11 @@
     
     <app-carousel-funcionalidades></app-carousel-funcionalidades>
     <div class="titleBeneficios">
-        <h1>
+        <!-- <h1>
             Benefícios
-        </h1>
+        </h1> -->
+        <app-title-main-page class="title" labelTitleMainPage="Benefícios"></app-title-main-page>
+
         <div class="beneficios">
             <app-box-com-img 
             imgUrl="/iso-box.png"
