@@ -5,10 +5,10 @@
     padding-bottom: 6rem;
 }
 
-.secondSection {
+.secondSection, .fourthSection {
     background-color: #E5E5E5;
 
-    padding: 8rem 0;
+    padding: 4rem 0;
 
     display: flex;
     justify-content: center;
@@ -20,7 +20,12 @@
     background-color: #E5E5E5;
 
     padding-top: 6rem;
-    padding-bottom: 11rem;
+}
+
+.fourthSection {
+    padding: 0;
+
+    margin-bottom: 8rem;
 }
 
 img {
@@ -48,11 +53,19 @@ img {
     left: 50%;
     margin-left: -3px;
     box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.75);
+
+    z-index: 0;
 }
+
+.nossoDiferencial::after {
+    bottom: -123px;
+}
+
 /*Adjusting box of all content*/
 .text-wrapper{
     padding: 10px 40px;
     position: relative;
+    z-index: 1;
     width:51%;
     box-sizing: border-box;
 
@@ -151,7 +164,7 @@ img {
 }
 
 .left4::after {
-    background-image: url(../../../../public/quadro.png);
+    background-image: url(../../../../public/challenge.png);
     background-position: center;
     background-size: 70%;
     background-repeat: no-repeat;
@@ -164,7 +177,7 @@ img {
 
 .right3::after{
     left:-10px;
-    background-image: url(../../../../public/tag-uhf.png);
+    background-image: url(../../../../public/solutions.png);
     background-position: center;
     background-size: 70%;
     background-repeat: no-repeat;
@@ -204,4 +217,27 @@ img {
 .reveal.active {
   opacity: 1;
   transform: translateX(0) translateY(0);
+}
+
+.card {
+    max-width: 670px;
+    margin: 0 auto 10rem auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    padding: 4rem 0px;
+    display: flex;
+    // justify-content: center;
+
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.cardText {
+    font-family: sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+
+    text-align: center;
+
+    padding: 0 7rem;
 }
