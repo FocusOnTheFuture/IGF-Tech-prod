@@ -35,21 +35,23 @@
 .col-left .text-content p {
   margin-bottom: 20px;
   color: #000;
-  font-size: 1rem;
+  font-size: 1.25rem;
   text-align: justify;
 }
 
 /* Coluna Direita */
 .col-right .intro-text {
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: #000;
+
+  margin-top: 5px;
   margin-bottom: 40px;
 }
 
 /* Container da imagem (tamanho fixo) */
 .image-placeholder {
   width: 495px;
-  height: 295px;
+  height: 433px;
   background-color: #e6e6e6;
 
   display: flex;
