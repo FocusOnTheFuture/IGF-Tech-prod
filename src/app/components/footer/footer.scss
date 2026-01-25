@@ -1,71 +1,131 @@
 section {
   background-color: black;
-
   padding-bottom: 1.25rem;
-
   margin-top: -10px;
-    z-index: 3;
-    position: relative;
+  position: relative;
+  z-index: 3;
 }
 
+/* ===== TOPO: LOGO + SOCIAL ===== */
 .socialMedia {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    margin: 0 13rem 3rem 14rem;
+  margin: 0 13rem 3rem 14rem;
 }
 
+/* ===== TÍTULO ===== */
 h2 {
-    text-align: center;
-
-    color: white;
-
-    font-size: 3.5rem;
+  text-align: center;
+  color: white;
+  font-size: 3.5rem;
+  position: relative;
 }
 
-h2:after {
+h2::after {
   background-color: white;
   content: '';
   display: block;
   height: 1px;
-//   width: 75px;
-  margin: -1.75em auto; /* ← centraliza */
-
   width: 80%;
+  margin: -1.75em auto;
 }
 
-
+/* ===== CONTATOS ===== */
 .contatos {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 
-    margin-top: 14rem;
-    margin-bottom: 5rem;
+  margin-top: 14rem;
+  margin-bottom: 5rem;
 }
 
+/* ===== COPYRIGHT ===== */
 p {
-    text-align: center;
-
-    color: #BC963D;
-
-    margin-bottom: 0;
+  text-align: center;
+  color: #BC963D;
+  margin-bottom: 0;
 }
 
-// p:after {
-//   background-color: white;
-//   content: '';
-//   display: block;
-//   height: 1px;
-// //   width: 75px;
-//   margin: -3.75em auto; /* ← centraliza */
-
-//   width: 80%;
-// }
-
+/* ===== LOGO ===== */
 img {
   width: 75px;
   height: 60px;
-
   margin-top: 2rem;
+}
+
+/* ========================= */
+/* ===== RESPONSIVO ======== */
+/* ========================= */
+
+/* --- LARGE DESKTOP --- */
+@media (max-width: 1400px) {
+  .socialMedia {
+    margin: 0 8rem 3rem 8rem;
+  }
+}
+
+/* --- DESKTOP / NOTEBOOK --- */
+@media (max-width: 1200px) {
+  .socialMedia {
+    margin: 0 5rem 3rem 5rem;
+  }
+
+  .contatos {
+    margin-top: 10rem;
+  }
+}
+
+/* --- TABLET --- */
+@media (max-width: 992px) {
+  .socialMedia {
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 3rem 3rem 3rem;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+  }
+
+  .contatos {
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+  }
+}
+
+/* --- MOBILE --- */
+@media (max-width: 576px) {
+  .socialMedia {
+    margin: 0 1.5rem 3rem 1.5rem;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+  }
+
+  h2::after {
+    width: 90%;
+    margin: -1.4em auto;
+  }
+
+  .contatos {
+    gap: 2.5rem;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  img {
+    width: 65px;
+    height: auto;
+  }
+
+  p {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
 }
