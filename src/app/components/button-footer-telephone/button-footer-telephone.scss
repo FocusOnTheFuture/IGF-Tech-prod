@@ -1,59 +1,59 @@
 div {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; // evita estouro no mobile
 }
 
+/* Telephone */
 .telephone {
-    padding-left: 1rem;
+  padding-left: 0.5rem; // mobile
 }
 
 .telephone li {
-    list-style-type: none;
-    
-    color: white;
-    
-    font-size: 1.2rem;
+  list-style-type: none;
+  color: white;
+  font-size: 1rem; // mobile
+  line-height: 1.4;
 }
 
+/* Wrapper */
 .wrapper {
   display: inline-flex;
   list-style: none;
-//   height: 120px;
-//   width: 100%;
-//   padding-top: 40px;
   font-family: "Poppins", sans-serif;
   justify-content: center;
+  gap: 0.5rem;
 }
 
+/* Ícone */
 .wrapper .icon {
   position: relative;
   background: #fff;
   border-radius: 6px;
-  margin: 10px;
-  width: 5rem;
-  height: 5rem;
-  font-size: 50px;
+  margin: 6px;
+  width: 3.5rem;   // mobile
+  height: 3.5rem;
+  font-size: 28px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-//   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
+/* Tooltip (mantido para consistência visual, mesmo desativado) */
 .wrapper .tooltip {
   position: absolute;
   top: 0;
-  font-size: 14px;
+  font-size: 0.9rem;
   background: #fff;
   color: #fff;
-  padding: 5px 8px;
+  padding: 4px 6px;
   border-radius: 5px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .wrapper .tooltip::before {
@@ -65,36 +65,72 @@ div {
   bottom: -3px;
   left: 50%;
   transform: translate(-50%) rotate(45deg);
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-// .wrapper .icon:hover .tooltip {
-//   top: -45px;
-//   opacity: 1;
-//   visibility: visible;
-//   pointer-events: auto;
-// }
+/* Small devices (≥576px) */
+@media (min-width: 576px) {
+  .telephone {
+    padding-left: 0.8rem;
+  }
 
-// .wrapper .icon:hover span,
-// .wrapper .icon:hover .tooltip {
-//   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
-// }
+  .telephone li {
+    font-size: 1.1rem;
+  }
 
-// .wrapper .facebook{
-//   background: #BC963D;
-//   color: #fff;
-// }
+  .wrapper .icon {
+    width: 4rem;
+    height: 4rem;
+    font-size: 34px;
+  }
+}
 
-// .wrapper .twitter:hover,
-// .wrapper .twitter:hover .tooltip,
-// .wrapper .twitter:hover .tooltip::before {
-//   background: #1da1f2;
-//   color: #fff;
-// }
+/* Medium devices (≥768px) */
+@media (min-width: 768px) {
+  div {
+    flex-wrap: nowrap;
+  }
 
-// .wrapper .instagram:hover,
-// .wrapper .instagram:hover .tooltip,
-// .wrapper .instagram:hover .tooltip::before {
-//   background: #e4405f;
-//   color: #fff;
-// }
+  .telephone li {
+    font-size: 1.15rem;
+  }
+
+  .wrapper .icon {
+    width: 4.5rem;
+    height: 4.5rem;
+    font-size: 40px;
+  }
+}
+
+/* Large devices (≥992px) */
+@media (min-width: 992px) {
+  .telephone {
+    padding-left: 1rem;
+  }
+
+  .telephone li {
+    font-size: 1.2rem;
+  }
+
+  .wrapper .icon {
+    width: 5rem;
+    height: 5rem;
+    font-size: 50px;
+    margin: 10px;
+  }
+}
+
+/* X-Large devices (≥1200px) */
+@media (min-width: 1200px) {
+  .wrapper .icon {
+    width: 5.2rem;
+    height: 5.2rem;
+  }
+}
+
+/* XX-Large devices (≥1400px) */
+@media (min-width: 1400px) {
+  .wrapper .icon {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+}

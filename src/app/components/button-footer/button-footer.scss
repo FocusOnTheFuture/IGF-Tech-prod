@@ -1,31 +1,32 @@
 div {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 p {
-    color: white;
-    font-size: 1.5rem;
+  color: white;
+  font-size: 1.1rem; // mobile
+  text-align: center;
 }
 
+/* Wrapper */
 .wrapper {
   display: inline-flex;
   list-style: none;
-//   height: 120px;
-//   width: 100%;
-//   padding-top: 40px;
   font-family: "Poppins", sans-serif;
   justify-content: center;
+  gap: 0.5rem;
 }
 
+/* Ícone */
 .wrapper .icon {
   position: relative;
   background: #fff;
   border-radius: 6px;
-  margin: 10px;
-  width: 5rem;
-  height: 5rem;
-  font-size: 50px;
+  margin: 6px;
+  width: 3.5rem;   // mobile
+  height: 3.5rem;  // mobile
+  font-size: 28px; // mobile
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,13 +36,14 @@ p {
   transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
+/* Tooltip */
 .wrapper .tooltip {
   position: absolute;
   top: 0;
-  font-size: 14px;
+  font-size: 0.9rem; // mobile
   background: #fff;
   color: #fff;
-  padding: 5px 8px;
+  padding: 4px 6px;
   border-radius: 5px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   opacity: 0;
@@ -58,15 +60,14 @@ p {
   bottom: -3px;
   left: 50%;
   transform: translate(-50%) rotate(45deg);
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
+/* Hover */
 .wrapper .icon:hover .tooltip {
-  top: -45px;
+  top: -40px; // mobile
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  font-size: 1.2rem;
 }
 
 .wrapper .icon:hover span,
@@ -74,6 +75,83 @@ p {
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
 }
 
+/* Small devices (≥576px) */
+@media (min-width: 576px) {
+  p {
+    font-size: 1.2rem;
+  }
+
+  .wrapper .icon {
+    width: 4rem;
+    height: 4rem;
+    font-size: 34px;
+  }
+
+  .wrapper .icon:hover .tooltip {
+    top: -42px;
+  }
+}
+
+/* Medium devices (≥768px) */
+@media (min-width: 768px) {
+  p {
+    font-size: 1.3rem;
+  }
+
+  .wrapper .icon {
+    width: 4.5rem;
+    height: 4.5rem;
+    font-size: 40px;
+  }
+
+  .wrapper .tooltip {
+    font-size: 1rem;
+  }
+
+  .wrapper .icon:hover .tooltip {
+    top: -45px;
+  }
+}
+
+/* Large devices (≥992px) */
+@media (min-width: 992px) {
+  p {
+    font-size: 1.5rem;
+  }
+
+  .wrapper .icon {
+    width: 5rem;
+    height: 5rem;
+    font-size: 50px;
+    margin: 10px;
+  }
+
+  .wrapper .tooltip {
+    font-size: 1.1rem;
+  }
+
+  .wrapper .icon:hover .tooltip {
+    top: -48px;
+  }
+}
+
+/* X-Large devices (≥1200px) */
+@media (min-width: 1200px) {
+  .wrapper .icon {
+    width: 5.2rem;
+    height: 5.2rem;
+  }
+}
+
+/* XX-Large devices (≥1400px) */
+@media (min-width: 1400px) {
+  .wrapper .icon {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+}
+
+/* Cores */
 .wrapper .facebook:hover,
 .wrapper .facebook:hover .tooltip,
 .wrapper .facebook:hover .tooltip::before {
