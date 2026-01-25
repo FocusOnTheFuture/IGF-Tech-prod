@@ -1,0 +1,13 @@
+<section class="clients-section">
+
+    <app-title-main-page labelTitleMainPage="Clientes"></app-title-main-page>
+    
+    <div class="logos-wrapper">
+        <div class="logos-track" #track>
+        @for (logo of logos; track logo) {
+            <img [src]="logo" alt="Cliente">
+        }
+        </div>
+    </div>
+    
+</section>
