@@ -2,9 +2,6 @@
   display: block;
   overflow-x: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-  /* 👇 cria espaço para o scroll sem afetar a seção */
-//   padding: 100vh 0;
 }
 
 .image-reveal-container {
@@ -15,7 +12,7 @@
   background-color: #000;
 }
 
-/* Imagem base */
+/* ===== IMAGEM DE FUNDO ===== */
 .bg-image {
   position: absolute;
   inset: 0;
@@ -25,7 +22,7 @@
   z-index: 1;
 }
 
-/* Imagem deslizante */
+/* ===== IMAGEM DESLIZANTE ===== */
 .sliding-image {
   position: absolute;
   top: 0;
@@ -37,15 +34,13 @@
 
   box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
 
-  /* IMPORTANTE: começa sem deslocamento */
   transform: translateX(0);
   clip-path: polygon(39% 0, 100% 0, 100% 100%, 0 100%);
-  
   transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
 
-/* Texto */
+/* ===== TEXTO ===== */
 .content-overlay {
   position: absolute;
   z-index: 3;
@@ -53,4 +48,77 @@
   bottom: 50px;
   left: 50px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+
+  p {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+}
+
+/* ========================= */
+/* ===== RESPONSIVO ======== */
+/* ========================= */
+
+/* --- NOTEBOOK --- */
+@media (max-width: 1200px) {
+  .sliding-image {
+    width: 65%;
+    right: -65%;
+  }
+
+  .content-overlay p {
+    font-size: 1.8rem;
+  }
+}
+
+/* --- TABLET --- */
+@media (max-width: 992px) {
+  .image-reveal-container {
+    height: 80vh;
+  }
+
+  .sliding-image {
+    width: 70%;
+    right: -70%;
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .content-overlay {
+    bottom: 40px;
+    left: 30px;
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/* --- MOBILE --- */
+@media (max-width: 576px) {
+  .image-reveal-container {
+    height: 70vh;
+  }
+
+  /* REMOVE O EFEITO LATERAL */
+  .sliding-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    transform: none !important;
+    clip-path: none;
+    box-shadow: none;
+  }
+
+  .content-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    text-align: center;
+
+    p {
+      font-size: 1.3rem;
+    }
+  }
 }

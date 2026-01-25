@@ -28,6 +28,11 @@ export class ImagemSobreImagem implements AfterViewInit {
   onScroll(): void {
     if (this.efeitoFinalizado) return;
 
+    if (window.innerWidth <= 576) {
+      this.efeitoFinalizado = true;
+      return;
+    }
+
     const section = this.revealSection.nativeElement;
     const image = this.slidingImg.nativeElement;
 
