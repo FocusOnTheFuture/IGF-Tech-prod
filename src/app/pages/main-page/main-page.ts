@@ -7,6 +7,7 @@ import { CarouselFuncionalidades } from '../../components/carousel-funcionalidad
 import { CarouselApresentation } from '../../components/carousel-apresentation/carousel-apresentation';
 import { TitleMainPage } from '../../components/titles/title-main-page/title-main-page/title-main-page';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll';
+import { Clients } from '../../components/clients/clients';
 
 
 @Component({
@@ -20,7 +21,8 @@ import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll';
     CarouselFuncionalidades,
     CarouselApresentation,
     TitleMainPage,
-    AnimateOnScrollDirective
+    AnimateOnScrollDirective,
+    Clients
   ],
   templateUrl: './main-page.html',
   styleUrl: './main-page.scss',

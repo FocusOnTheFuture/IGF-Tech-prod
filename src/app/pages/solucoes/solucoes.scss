@@ -58,7 +58,7 @@ img {
 }
 
 .nossoDiferencial::after {
-    bottom: -123px;
+    bottom: -1640px;
 }
 
 /*Adjusting box of all content*/
@@ -151,6 +151,20 @@ img {
     line-height: 1.3;
 }
 
+.content ul {
+    color: white;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: justify;
+
+    margin-top: 2px;
+    line-height: 1.3;
+}
+
+li {
+    padding-bottom: 8px;
+}
+
 /*for left events*/
 .left3 .left4{
     left: 0;
@@ -229,6 +243,11 @@ img {
     display: flex;
     // justify-content: center;
 
+    position: relative;
+    z-index: 2;
+
+    background-color: #E5E5E5;
+
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
@@ -240,4 +259,51 @@ img {
     text-align: center;
 
     padding: 0 7rem;
+}
+
+.cardBeneficios {
+    display: flex;
+    flex-direction: column;
+}
+
+.imgBeneficios {
+    width: 60%;
+    max-height: 400px;
+
+    margin: auto;
+}
+
+.cardIntegracoes {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 915px;
+}
+
+.imgIntegracoes {
+    width: 38%;
+    max-height: 340px;
+
+    margin: auto 0 auto 4rem;
+}
+
+.textEImgIntegracoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.textIntegracoes {
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: justify;
+    
+    line-height: 1.3;
+
+    padding: 0 4rem;
+}
+
+.bold {
+    font-weight: 600;
+    // color: #fff;
 }
