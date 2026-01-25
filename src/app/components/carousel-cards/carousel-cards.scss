@@ -1,40 +1,18 @@
-/* 1. Garante que paddings não aumentem o tamanho dos elementos */
 * {
   box-sizing: border-box;
-}
-
-
-// h1 {
-//   text-align: center;
-
-//   margin-top: 0;
-
-//   padding-top: 5rem;
-
-//   font-size: 3.5rem;
-// }
-
-h3 {
-  margin: 3rem 0;
 }
 
 .carousel-container {
   position: relative;
   width: 100%;
-  // max-width: 1200px; /* Aumente um pouco para dar fôlego aos 3 cards */
-  margin: auto;
-  padding: 0; /* Removi o padding lateral daqui para ganhar espaço */
-
   padding-top: 5rem;
-
   background-color: white;
 }
 
 .carousel-window {
   width: 100%;
   overflow: hidden;
-  /* Se quiser um pequeno respiro nas laterais para a sombra do card não cortar: */
-  padding: 28px 0; 
+  padding: 28px 0;
 }
 
 .carousel-track {
@@ -43,24 +21,18 @@ h3 {
 }
 
 .slide {
-  flex: 0 0 100%; /* O slide ocupa exatamente 100% da janela */
+  flex: 0 0 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Divide em 3 partes iguais */
-  gap: 20px; /* Espaço entre os cards */
-  margin: 0;
-  padding: 0 64px; /* Padding pequeno apenas para a sombra do card aparecer */
-
-  padding-bottom: 3rem;
+  gap: 20px;
+  padding: 0 64px;
 }
 
+/* Card */
 .card {
   background: white;
   border-radius: 12px;
-  overflow: hidden;
-  // box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  width: 100%; /* Garante que o card ocupe o espaço da coluna do grid */
 
   img {
     width: 100%;
@@ -73,23 +45,42 @@ h3 {
   text-align: center;
 }
 
-/* 2. As setas flutuando SOBRE os cards (igual à imagem) */
 .nav {
   position: absolute;
-  top: 50%;
+  top: 70%;
   transform: translateY(-50%);
-  z-index: 10; /* Garante que fiquem na frente das imagens */
-  background: rgba(255, 255, 255, 0.2); /* Fundo sutil para não cobrir o card */
-  border: none;
   font-size: 40px;
+  background: none;
+  border: none;
   color: #BC963D;
   cursor: pointer;
-  transition: 0.3s;
-  
-  &:hover {
-    color: #8a6d2c;
+  z-index: 10;
+}
+
+.prev { left: 24px; }
+.next { right: 24px; }
+
+/* ===== GRID CONTROLADO PELO TAMANHO ===== */
+
+@media (min-width: 992px) {
+  .slide {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.prev { left: 103px; }  /* Posicionada sobre o primeiro card */
-.next { right: 103px; } /* Posicionada sobre o terceiro card */
+@media (min-width: 576px) and (max-width: 991px) {
+  .slide {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .slide {
+    grid-template-columns: 1fr;
+    padding: 0 24px;
+  }
+
+  .nav {
+    font-size: 32px;
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Importação obrigatória
 import { ButtonsProdutos } from '../buttons-produtos/buttons-produtos';
 import { TitleMainPage } from '../titles/title-main-page/title-main-page/title-main-page';
@@ -35,32 +35,44 @@ export class CarouselCards implements OnInit {
     { id: 6, title: 'RFIDAB-CF1', text: 'Marca forte online.', image: '/Product.png' }
   ];
 
-  ngOnInit() {
+    ngOnInit() {
+    this.updateItemsPerSlide();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.updateItemsPerSlide();
+  }
+
+  updateItemsPerSlide() {
+    const width = window.innerWidth;
+
+    if (width < 576) {
+      this.itemsPerSlide = 1;
+    } else if (width < 992) {
+      this.itemsPerSlide = 2;
+    } else {
+      this.itemsPerSlide = 3;
+    }
+
+    this.currentIndex = 0;
     this.createSlides();
   }
 
   createSlides() {
-    this.slides = []; // Limpa antes de criar
+    this.slides = [];
     for (let i = 0; i < this.cards.length; i += this.itemsPerSlide) {
       this.slides.push(this.cards.slice(i, i + this.itemsPerSlide));
     }
   }
 
   next() {
-    console.log('Botão Next clicado! Índice atual:', this.currentIndex);
-    if (this.currentIndex < this.slides.length - 1) {
-      this.currentIndex++;
-    } else {
-      this.currentIndex = 0;
-    }
+    this.currentIndex =
+      this.currentIndex < this.slides.length - 1 ? this.currentIndex + 1 : 0;
   }
 
   prev() {
-    console.log('Botão Prev clicado!');
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    } else {
-      this.currentIndex = this.slides.length - 1;
-    }
+    this.currentIndex =
+      this.currentIndex > 0 ? this.currentIndex - 1 : this.slides.length - 1;
   }
 }
