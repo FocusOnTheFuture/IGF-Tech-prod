@@ -307,3 +307,152 @@ li {
     font-weight: 600;
     // color: #fff;
 }
+
+
+/* ===========================
+   TABLET (até 1024px)
+=========================== */
+@media (max-width: 1024px) {
+
+  .main-container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .main-container::after {
+    left: 32px;
+  }
+
+  .text-wrapper {
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 20px;
+  }
+
+  .text-wrapper::after {
+    left: 0;
+    right: auto;
+  }
+
+  .right,
+  .right3 {
+    left: 0;
+  }
+
+  .content,
+  .content_right {
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.6);
+  }
+
+  .content h3 {
+    font-size: 1.6rem;
+  }
+
+  .content p,
+  .content ul {
+    font-size: 1.1rem;
+  }
+
+  .card {
+    padding: 3rem 1rem;
+  }
+
+  .cardText {
+    padding: 0 2rem;
+    font-size: 1.4rem;
+  }
+
+  .imgBeneficios {
+    width: 80%;
+  }
+
+  .textEImgIntegracoes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imgIntegracoes {
+    width: 70%;
+    margin: 0 auto 2rem auto;
+  }
+
+  .textIntegracoes {
+    padding: 0 2rem;
+  }
+}
+
+/* ===========================
+   MOBILE (até 768px)
+   Timeline centralizada
+=========================== */
+@media (max-width: 768px) {
+
+  /* Linha da timeline no meio da tela */
+  .main-container::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+  }
+
+  /* Todos os cards ocupam 100% */
+  .text-wrapper {
+    width: 100%;
+    left: 0 !important;
+    padding: 2rem 1rem;
+  }
+
+  /* Centraliza TODOS os cards */
+  .left1,
+  .left2,
+  .left3,
+  .left4,
+  .right,
+  .right2,
+  .right3,
+  .right4 {
+    left: 0;
+  }
+
+  /* Bolinha/ícone fica centralizado na linha */
+  .text-wrapper::after {
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+  }
+
+  /* Cards ficam visualmente centralizados */
+  .content,
+  .content_right {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.6);
+  }
+
+  /* Remove sensação de “lado” no scroll reveal */
+  .left1.reveal,
+  .left2.reveal,
+  .right.reveal,
+  .right2.reveal,
+  .left3.reveal,
+  .right3.reveal,
+  .left4.reveal {
+    transform: translateY(60px);
+  }
+
+  /* Texto mais confortável no mobile */
+  .content h3 {
+    font-size: 1.35rem;
+    text-align: center;
+  }
+
+  .content p,
+  .content ul {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .content ul {
+    text-align: left;
+  }
+}
