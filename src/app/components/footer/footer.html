@@ -6,10 +6,27 @@
     <h2>
         Contatos
     </h2>
+
     <div class="contatos">
-        <app-button-footer-telephone></app-button-footer-telephone>
-        <app-button-footer></app-button-footer>
-        <app-button-footer-map></app-button-footer-map>
+        <app-footer-contact-item
+            tooltip="Telefone"
+            [iconSvg]="icons.phone"
+            [lines]="['31 3671-1985', '31 99992-6910']">
+        </app-footer-contact-item>
+
+        <app-footer-contact-item
+            tooltip="Email"
+            [iconSvg]="icons.email"
+            [lines]="['contato@igftech.com.br']">
+        </app-footer-contact-item>
+
+        <app-footer-contact-item
+            iconType="map"
+            tooltip="Localização"
+            [iconSvg]="icons.map"
+            [lines]="['Rua Jaqueira, 615', 'Sabará - MG']"
+            link="https://www.google.com/maps/@-19.9087697,-43.8198529,3a,75y,67.45h,81.69t/data=!3m7!1e1!3m5!1s02ANyTVsAS3ehOdvM3NT2g!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D8.310000000000002%26panoid%3D02ANyTVsAS3ehOdvM3NT2g%26yaw%3D67.45!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">
+        </app-footer-contact-item>
     </div>
 
     <p>

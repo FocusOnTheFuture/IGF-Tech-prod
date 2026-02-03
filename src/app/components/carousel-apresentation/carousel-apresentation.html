@@ -3,29 +3,40 @@
   <button class="nav prev" (click)="prev()">&#10094;</button>
 
   <div class="carousel-window">
-    <div
-      class="carousel-track"
-      [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
-    >
 
-      @for (slide of slides; track $index) {
-        <div class="slide">
-          <img [src]="slide.image" alt="Slide image" />
+    @for (slide of slides; track $index) {
+      <div 
+        class="slide" 
+        [class.active]="$index === currentIndex"
+      >
+        <img [src]="slide.image" />
 
-          <div class="content">
-            <h2>{{ slide.title }}</h2>
-            <p>{{ slide.description }}</p>
+        <div class="overlay"></div>
 
-            <button class="cta" (click)="slide.action()">
-              {{ slide.buttonText }}
-            </button>
-          </div>
+        <div class="content">
+          <h2>{{ slide.title }}</h2>
+          <p>{{ slide.description }}</p>
+
+          <button class="cta" (click)="slide.action()">
+            {{ slide.buttonText }}
+          </button>
         </div>
-      }
+      </div>
+    }
 
-    </div>
   </div>
 
   <button class="nav next" (click)="next()">&#10095;</button>
+
+  <!-- Dots -->
+  <div class="dots">
+    @for (slide of slides; track $index) {
+      <span 
+        class="dot" 
+        [class.active]="$index === currentIndex"
+        (click)="goToSlide($index)">
+      </span>
+    }
+  </div>
 
 </div>

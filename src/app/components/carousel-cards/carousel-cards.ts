@@ -1,5 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importação obrigatória
+import { Component, HostListener, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ButtonsProdutos } from '../buttons-produtos/buttons-produtos';
 import { TitleMainPage } from '../titles/title-main-page/title-main-page/title-main-page';
 
@@ -17,11 +17,12 @@ interface Card {
     CommonModule,
     ButtonsProdutos,
     TitleMainPage
-  ], // Certifique-se de que está aqui
+  ],
   templateUrl: './carousel-cards.html',
   styleUrls: ['./carousel-cards.scss']
 })
 export class CarouselCards implements OnInit {
+
   currentIndex = 0;
   itemsPerSlide = 3;
   slides: Card[][] = [];
@@ -35,16 +36,27 @@ export class CarouselCards implements OnInit {
     { id: 6, title: 'RFIDAB-CF1', text: 'Marca forte online.', image: '/Product.png' }
   ];
 
-    ngOnInit() {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
+
+  ngOnInit() {
+    // 🚨 Só roda no browser
+    if (!isPlatformBrowser(this.platformId)) return;
+
     this.updateItemsPerSlide();
   }
 
   @HostListener('window:resize')
   onResize() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     this.updateItemsPerSlide();
   }
 
   updateItemsPerSlide() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     const width = window.innerWidth;
 
     if (width < 576) {
@@ -61,6 +73,7 @@ export class CarouselCards implements OnInit {
 
   createSlides() {
     this.slides = [];
+
     for (let i = 0; i < this.cards.length; i += this.itemsPerSlide) {
       this.slides.push(this.cards.slice(i, i + this.itemsPerSlide));
     }

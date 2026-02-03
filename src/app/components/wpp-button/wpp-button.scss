@@ -1,0 +1,137 @@
+.gestao {
+    width: 100%;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+
+  /* micro destaque suave */
+  animation: softPulse 3.8s infinite;
+}
+
+/* hover premium */
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+  filter: brightness(1.05);
+}
+
+/* ÍCONE SVG/IMG RESPONSIVO */
+.whatsapp-float img {
+  width: clamp(2.2rem, 4vw, 3.1rem);
+  height: clamp(2.2rem, 4vw, 3.1rem);
+  transition: transform 0.25s ease;
+}
+
+/* micro efeito no hover */
+.whatsapp-float:hover img {
+  transform: scale(1.05);
+}
+
+/* animação leve — não chamativa */
+@keyframes softPulse {
+  0%, 100% {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  }
+  50% {
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.55);
+  }
+}
+
+/* MOBILE — pulse mais visível para indicar que é clicável */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    animation: softPulseMobile 2.6s infinite;
+  }
+
+  @keyframes softPulseMobile {
+    0%, 100% {
+      box-shadow: 0 0 0 rgba(37, 211, 102, 0);
+    }
+    50% {
+      box-shadow: 0 0 18px rgba(37, 211, 102, 0.55);
+    }
+  }
+}
+
+// Tooltip (mensagem quando hover)
+.whatsapp-tooltip {
+  position: absolute;
+  right: -14px;
+  bottom: 50%;
+  transform: translate(100%, 50%) scale(0.95);
+
+  background: #111;
+  color: white;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  transition: 0.25s ease;
+}
+
+/* aparece ao hover */
+.whatsapp-float:hover .whatsapp-tooltip {
+  opacity: 1;
+  transform: translate(100%, 50%) scale(1);
+}
+
+/* seta */
+.whatsapp-tooltip::after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent #111 transparent transparent;
+}
+
+/* MOBILE PEQUENO — ajusta posição */
+@media (max-width: 480px) {
+  .whatsapp-float {
+    bottom: 14px;
+    left: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .whatsapp-tooltip {
+    display: none !important;
+  }
+
+  .whatsapp-float {
+    animation: mobilePulse 2.5s infinite;
+  }
+
+  @keyframes mobilePulse {
+    0%, 100% {
+      box-shadow: 0 0 0 rgba(37,211,102,0);
+    }
+    50% {
+      box-shadow: 0 0 18px rgba(37,211,102,0.45);
+    }
+  }
+}

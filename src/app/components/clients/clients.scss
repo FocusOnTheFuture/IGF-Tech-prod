@@ -4,6 +4,8 @@
 }
 
 .logos-wrapper {
+  height: 80px;
+  display: flex;
   width: 100%;
   overflow: hidden;
 
@@ -22,11 +24,6 @@
     black 85%,
     transparent 100%
   );
-
-//   /* 🔥 PAUSA NO HOVER */
-//   &:hover .logos-track {
-//     animation-play-state: paused;
-//   }
 }
 
 .logos-track {
@@ -41,10 +38,10 @@
 
 @keyframes marquee {
   from {
-    transform: translate3d(0, 0, 0);
+    transform: translateX(0);
   }
   to {
-    transform: translate3d(var(--move), 0, 0);
+    transform: translateX(-50%);
   }
 }
 
@@ -54,15 +51,10 @@
   flex-shrink: 0;
 
   opacity: 0.85;
-  transition: 
-    transform 0.3s ease,
-    opacity 0.3s ease;
-
-  /* melhora suavidade */
+  transition: transform 0.3s ease, opacity 0.3s ease;
   will-change: transform;
 }
 
-/* 🔥 CRESCE AO PASSAR O MOUSE */
 .logos-track img:hover {
   transform: scale(1.12);
   opacity: 1;

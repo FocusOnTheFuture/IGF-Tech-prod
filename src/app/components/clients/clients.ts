@@ -41,20 +41,20 @@ export class Clients implements AfterViewInit {
 
   ngAfterViewInit(): void {
 
-    // 🚫 NÃO roda no servidor
     if (!isPlatformBrowser(this.platformId)) return;
 
     const trackEl = this.track.nativeElement;
 
-    // duplica conteúdo para loop infinito
+    // duplica os logos
     trackEl.innerHTML += trackEl.innerHTML;
 
-    // espera o browser renderizar
     requestAnimationFrame(() => {
-      const width = trackEl.scrollWidth / 2;
+      const fullWidth = trackEl.scrollWidth / 2;
 
-      trackEl.style.setProperty('--move', `-${width}px`);
-      trackEl.style.setProperty('--duration', `${width / 40}s`);
+      // duração proporcional (quanto maior, mais lento)
+      const duration = fullWidth / 35;
+
+      trackEl.style.setProperty('--duration', `${duration}s`);
     });
   }
 }

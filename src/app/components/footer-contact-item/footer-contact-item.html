@@ -1,0 +1,26 @@
+<a *ngIf="link; else contentBlock" [href]="link" target="_blank" class="map-link">
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</a>
+
+<ng-template #contentBlock>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</ng-template>
+
+<ng-template #content>
+  <div class="contact-item" [class.map-mode]="iconType === 'map'">
+
+    <ul class="wrapper">
+      <li class="icon">
+        <span class="tooltip">{{ tooltip }}</span>
+
+        <!-- SVG -->
+        <span class="svg-holder" [innerHTML]="safeSvg"></span>
+      </li>
+    </ul>
+
+    <ul class="text">
+      <li *ngFor="let line of lines">{{ line }}</li>
+    </ul>
+
+  </div>
+</ng-template>

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-carousel-apresentation',
-  imports: [],
   templateUrl: './carousel-apresentation.html',
   styleUrl: './carousel-apresentation.scss',
 })
@@ -36,7 +35,6 @@ export class CarouselApresentation {
   next() {
     this.currentIndex =
       this.currentIndex < this.slides.length - 1 ? this.currentIndex + 1 : 0;
-      console.log('Cliquei no next')
   }
 
   prev() {
@@ -44,9 +42,11 @@ export class CarouselApresentation {
       this.currentIndex > 0 ? this.currentIndex - 1 : this.slides.length - 1;
   }
 
+  goToSlide(index: number) {
+    this.currentIndex = index;
+  }
+
   onClick(type: string) {
     console.log('Botão clicado:', type);
-    // futuramente:
-    // this.router.navigate(['/contato'])
   }
 }
