@@ -2,6 +2,24 @@
     width: 100%;
 }
 
+.banner {
+  background-image: url('/gestao.png');
+  background-size: cover; /* Faz a imagem cobrir a tela toda sem distorcer */
+  background-position: right;
+  height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner h1 {
+  color: white;
+  font-family: 'Montserrat', sans-serif; /* Fonte similar à do print */
+  font-weight: bold;
+  font-size: clamp(1.5rem, 5vw, 3rem); /* O texto cresce conforme a tela */
+}
+
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -68,6 +86,11 @@
       box-shadow: 0 0 18px rgba(37, 211, 102, 0.55);
     }
   }
+
+  .banner {
+    height: auto;
+    min-height: 430px;
+  }
 }
 
 // Tooltip (mensagem quando hover)
@@ -114,6 +137,11 @@
   .whatsapp-float {
     bottom: 14px;
     left: 14px;
+  }
+
+  .banner {
+    height: auto;
+    min-height: 435px;
   }
 }
 

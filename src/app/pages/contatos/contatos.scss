@@ -123,20 +123,20 @@
 /* BUTTON */
 button[type="submit"] {
   width: 100%;
-  background: #00bcd4;
+  background: #c9a23a;
   color: #FFF;
   border: none;
   cursor: pointer;
   padding: 14px;
   font-size: 18px;
   border-radius: 6px;
-  border: 1px solid #00bcd4;
+  border: 1px solid #c9a23a;
   transition: 0.3s ease;
   margin-top: 16px;
 
   &:hover:not(:disabled) {
     background: #FFF;
-    color: #00bcd4;
+    color: #c9a23a;
   }
 
   &:disabled {
