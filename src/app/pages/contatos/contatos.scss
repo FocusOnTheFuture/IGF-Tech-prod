@@ -1,22 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
 .contact-section {
+  font-family: "Montserrat", sans-serif;
+  
   position: relative;
   z-index: 3;
   width: 100%;
-  padding: 50px 0;
+  padding: 80px 0; // espaçamento maior em telas grandes
+
+  // BACKGROUND
+  background-image: url('https://images.pexels.com/photos/9989522/pexels-photo-9989522.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+  }
 
   .container {
+    position: relative;
+    z-index: 2;
     max-width: 1080px;
     margin: 0 auto;
     padding: 0 20px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 2;
+
+    h2 {
+      color: #fff;
+      font-weight: bold;
+      font-size: 2.8rem; // padrão acima de 1024px
+
+      @media (max-width: 1024px) {
+        font-size: 2.3rem;
+      }
+    }
+
+    p {
+      color: #fff;
+      font-size: 1.25rem; // padrão para telas grandes
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 0.8rem; // menor ainda para mobile
+      }
+    }
   }
 
   form {
@@ -30,146 +72,148 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    position: relative;
+    z-index: 2;
   }
-}
 
-/* INPUT GROUP */
-.input-box {
-  position: relative;
-  width: 100%;
-  margin-top: 12px;
-
-  input,
-  textarea,
-  select {
+  // INPUT GROUP
+  .input-box {
+    position: relative;
     width: 100%;
-    padding: 8px 0;
-    font-size: 16px;
-    margin: 12px 0 6px;
-    border: none;
-    border-bottom: 2px solid #333;
-    outline: none;
-    resize: none;
-    background: transparent;
-    color: #333;
-    transition: 0.3s ease;
+    margin-top: 12px;
 
-    &:focus {
-      border-color: #e91e63;
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px 0;
+      font-size: 16px;
+      margin: 12px 0 6px;
+      border: none;
+      border-bottom: 2px solid #333;
+      outline: none;
+      resize: none;
+      background: transparent;
+      color: #333;
+      transition: 0.3s ease;
+
+      &:focus {
+        border-color: #e91e63;
+      }
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    select {
+      appearance: none;
+      cursor: pointer;
+    }
+
+    label {
+      position: absolute;
+      left: 0;
+      top: 18px;
+      font-size: 16px;
+      color: #666;
+      pointer-events: none;
+      transition: 0.35s ease;
+    }
+
+    // FLOAT LABEL
+    &.filled label,
+    input:focus ~ label,
+    textarea:focus ~ label,
+    select:focus ~ label {
+      color: #e91e63;
+      font-size: 12px;
+      transform: translateY(-20px);
     }
   }
 
-  textarea {
-    min-height: 120px;
+  // SELECT BOX ICON
+  .select-box {
+    select {
+      padding-right: 20px;
+    }
+
+    &::after {
+      content: "▾";
+      position: absolute;
+      right: 0;
+      top: 18px;
+      font-size: 14px;
+      pointer-events: none;
+      color: #666;
+    }
   }
 
-  select {
-    appearance: none;
-    cursor: pointer;
+  // TEXTAREA EXTRA
+  .input-box.textarea {
+    textarea {
+      padding-top: 12px;
+    }
   }
 
-  label {
-    position: absolute;
-    left: 0;
-    top: 18px;
-    font-size: 16px;
-    color: #666;
-    pointer-events: none;
-    transition: 0.35s ease;
-  }
-
-  /* FLOAT LABEL */
-  &.filled label,
-  input:focus ~ label,
-  textarea:focus ~ label,
-  select:focus ~ label {
-    color: #e91e63;
-    font-size: 12px;
-    transform: translateY(-20px);
-  }
-}
-
-/* SELECT BOX ICON */
-.select-box {
-  select {
-    padding-right: 20px;
-  }
-
-  &::after {
-    content: "▾";
-    position: absolute;
-    right: 0;
-    top: 18px;
-    font-size: 14px;
-    pointer-events: none;
-    color: #666;
-  }
-}
-
-/* TEXTAREA EXTRA */
-.input-box.textarea {
-  textarea {
-    padding-top: 12px;
-  }
-}
-
-/* RECAPTCHA */
-.g-recaptcha {
-  margin-top: 18px;
-  transform: scale(0.95);
-  transform-origin: left;
-}
-
-/* BUTTON */
-button[type="submit"] {
-  width: 100%;
-  background: #c9a23a;
-  color: #FFF;
-  border: none;
-  cursor: pointer;
-  padding: 14px;
-  font-size: 18px;
-  border-radius: 6px;
-  border: 1px solid #c9a23a;
-  transition: 0.3s ease;
-  margin-top: 16px;
-
-  &:hover:not(:disabled) {
-    background: #FFF;
-    color: #c9a23a;
-  }
-
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-}
-
-/* RESPONSIVO */
-@media (max-width: 991px) {
-  .contact-section {
-    padding: 30px 0;
-  }
-
-  form {
-    padding: 30px !important;
-  }
-}
-
-@media (max-width: 576px) {
-  form {
-    padding: 22px !important;
-  }
-
-  .input-box label {
-    font-size: 14px;
-  }
-
-  button {
-    font-size: 16px;
-  }
-
+  // RECAPTCHA
   .g-recaptcha {
-    transform: scale(0.9);
+    margin-top: 18px;
+    transform: scale(0.95);
+    transform-origin: left;
+  }
+
+  // BUTTON
+  button[type="submit"] {
+    width: 100%;
+    background: #c9a23a;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 6px;
+    border: 1px solid #c9a23a;
+    transition: 0.3s ease;
+    margin-top: 16px;
+
+    &:hover:not(:disabled) {
+      background: #FFF;
+      color: #c9a23a;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  // RESPONSIVO
+  @media (max-width: 991px) {
+    padding: 50px 0;
+
+    form {
+      padding: 30px !important;
+    }
+  }
+
+  @media (max-width: 576px) {
+    padding: 40px 0;
+
+    form {
+      padding: 22px !important;
+    }
+
+    .input-box label {
+      font-size: 14px;
+    }
+
+    button {
+      font-size: 16px;
+    }
+
+    .g-recaptcha {
+      transform: scale(0.9);
+    }
   }
 }

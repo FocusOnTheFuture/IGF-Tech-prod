@@ -1,4 +1,15 @@
 <section class="contact-section">
+
+   <div class="section-header">
+      <div class="container">
+        <h2>Entre em contato</h2>
+        <p>
+          Estamos à disposição para tirar suas dúvidas, receber sugestões ou atender qualquer solicitação. Preencha o formulário abaixo e nossa equipe retornará o mais breve possível.
+          Será um prazer falar com você!
+        </p>
+      </div>
+    </div>
+    
   <div class="container">
 
     <form (submit)="sendEmail($event)" #contactForm>
@@ -35,7 +46,7 @@
       <!-- MENSAGEM -->
       <div class="input-box textarea">
         <textarea name="message" required (input)="checkFilled($event)"></textarea>
-        <label>Digite sua mensagem..</label>
+        <label>Digite sua mensagem...</label>
       </div>
 
       <!-- RECAPTCHA -->
