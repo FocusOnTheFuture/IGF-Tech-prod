@@ -1,1 +1,58 @@
-<p>contatos works!</p>
+<section class="contact-section">
+  <div class="container">
+
+    <form (submit)="sendEmail($event)" #contactForm>
+
+      <!-- NOME -->
+      <div class="input-box">
+        <input type="text" name="name" required (input)="checkFilled($event)">
+        <label>Nome completo</label>
+      </div>
+
+      <!-- ASSUNTO -->
+      <div class="input-box select-box">
+        <select name="subject" required (change)="checkFilled($event)">
+          <option value="" disabled selected hidden></option>
+          <option *ngFor="let subject of subjects" [value]="subject">
+            {{ subject }}
+          </option>
+        </select>
+        <label>Assunto</label>
+      </div>
+
+      <!-- EMAIL -->
+      <div class="input-box">
+        <input type="email" name="email" required (input)="checkFilled($event)">
+        <label>Email</label>
+      </div>
+
+      <!-- TELEFONE -->
+      <div class="input-box">
+        <input type="tel" name="phone" required (input)="formatPhone($event)">
+        <label>Telefone</label>
+      </div>
+
+      <!-- MENSAGEM -->
+      <div class="input-box textarea">
+        <textarea name="message" required (input)="checkFilled($event)"></textarea>
+        <label>Digite sua mensagem..</label>
+      </div>
+
+      <!-- RECAPTCHA -->
+      <!-- <div 
+        class="g-recaptcha" 
+        data-sitekey="6LeF2V8sAAAAAFDxS1HOfsfnj5Pu3jsrDRKMIH6o"
+        data-callback="onCaptchaSuccess">
+      </div> -->
+
+      <!-- BOTÃO -->
+      <button type="submit" [disabled]="loading">
+        <span *ngIf="!loading && !success">Enviar</span>
+        <span *ngIf="loading">Enviando...</span>
+        <span *ngIf="success">Mensagem enviada ✓</span>
+      </button>
+
+    </form>
+
+  </div>
+</section>

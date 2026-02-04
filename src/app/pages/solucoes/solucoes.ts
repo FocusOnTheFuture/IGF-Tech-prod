@@ -3,13 +3,15 @@ import { isPlatformBrowser } from '@angular/common';
 import { TitleMainPage } from '../../components/titles/title-main-page/title-main-page/title-main-page';
 import { TextSection } from '../../components/text-section/text-section';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll';
+import { WppButton } from '../../components/wpp-button/wpp-button';
 
 @Component({
   selector: 'app-solucoes',
   imports: [
     TitleMainPage,
     TextSection,
-    AnimateOnScrollDirective
+    AnimateOnScrollDirective,
+    WppButton
   ],
   templateUrl: './solucoes.html',
   styleUrl: './solucoes.scss',

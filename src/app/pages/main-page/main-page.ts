@@ -8,6 +8,7 @@ import { CarouselApresentation } from '../../components/carousel-apresentation/c
 import { TitleMainPage } from '../../components/titles/title-main-page/title-main-page/title-main-page';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll';
 import { Clients } from '../../components/clients/clients';
+import { WppButton } from '../../components/wpp-button/wpp-button';
 
 
 @Component({
@@ -22,7 +23,8 @@ import { Clients } from '../../components/clients/clients';
     CarouselApresentation,
     TitleMainPage,
     AnimateOnScrollDirective,
-    Clients
+    Clients,
+    WppButton
   ],
   templateUrl: './main-page.html',
   styleUrl: './main-page.scss',

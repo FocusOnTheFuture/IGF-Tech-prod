@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-section {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: 50px 0;
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* INPUT GROUP */
+.input-box {
+  position: relative;
+  width: 100%;
+  margin-top: 12px;
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 16px;
+    margin: 12px 0 6px;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+    background: transparent;
+    color: #333;
+    transition: 0.3s ease;
+
+    &:focus {
+      border-color: #e91e63;
+    }
+  }
+
+  textarea {
+    min-height: 120px;
+  }
+
+  select {
+    appearance: none;
+    cursor: pointer;
+  }
+
+  label {
+    position: absolute;
+    left: 0;
+    top: 18px;
+    font-size: 16px;
+    color: #666;
+    pointer-events: none;
+    transition: 0.35s ease;
+  }
+
+  /* FLOAT LABEL */
+  &.filled label,
+  input:focus ~ label,
+  textarea:focus ~ label,
+  select:focus ~ label {
+    color: #e91e63;
+    font-size: 12px;
+    transform: translateY(-20px);
+  }
+}
+
+/* SELECT BOX ICON */
+.select-box {
+  select {
+    padding-right: 20px;
+  }
+
+  &::after {
+    content: "▾";
+    position: absolute;
+    right: 0;
+    top: 18px;
+    font-size: 14px;
+    pointer-events: none;
+    color: #666;
+  }
+}
+
+/* TEXTAREA EXTRA */
+.input-box.textarea {
+  textarea {
+    padding-top: 12px;
+  }
+}
+
+/* RECAPTCHA */
+.g-recaptcha {
+  margin-top: 18px;
+  transform: scale(0.95);
+  transform-origin: left;
+}
+
+/* BUTTON */
+button[type="submit"] {
+  width: 100%;
+  background: #00bcd4;
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 6px;
+  border: 1px solid #00bcd4;
+  transition: 0.3s ease;
+  margin-top: 16px;
+
+  &:hover:not(:disabled) {
+    background: #FFF;
+    color: #00bcd4;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/* RESPONSIVO */
+@media (max-width: 991px) {
+  .contact-section {
+    padding: 30px 0;
+  }
+
+  form {
+    padding: 30px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  form {
+    padding: 22px !important;
+  }
+
+  .input-box label {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 16px;
+  }
+
+  .g-recaptcha {
+    transform: scale(0.9);
+  }
+}
