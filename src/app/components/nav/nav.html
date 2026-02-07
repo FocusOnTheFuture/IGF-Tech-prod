@@ -45,13 +45,14 @@
       <!-- CTA MOBILE -->
       <a href="#"
         class="btn-header mobile-cta"
-        (click)="onNavigate()">
+        (click)="onNavigate()"
+        *ngIf="!hideCTA()">
         ORÇAMENTO →
       </a>
     </nav>
 
-    <div class="header-right">
-      <a href="#" class="btn-header">ORÇAMENTO →</a>
+    <div class="header-right" *ngIf="!hideCTA()">
+      <a routerLink="/contatos" class="btn-header">ORÇAMENTO →</a>
     </div>
 
   </div>

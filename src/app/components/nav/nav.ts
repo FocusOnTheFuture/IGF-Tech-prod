@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-nav',
@@ -13,8 +14,18 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./nav.scss']
 })
 export class Nav {
+
   menuOpen = false;
   touchStartX = 0;
+  currentRoute = '';
+
+  constructor(private router: Router) {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        this.currentRoute = event.urlAfterRedirects;
+      });
+  }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -42,5 +53,11 @@ export class Nav {
       this.closeMenu();
     }
   }
-}
 
+  /* Rotas onde o botão NÃO deve aparecer */
+  hideCTA(): boolean {
+    return this.currentRoute.includes('/contatos')
+        || this.currentRoute.includes('/orcamento')
+        || this.currentRoute.includes('/formulario');
+  }
+}
