@@ -1,14 +1,7 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
-
-// declare global {
-//   interface Window {
-//     grecaptcha?: any;
-//     onCaptchaSuccess?: (token: string) => void;
-//   }
-// }
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contatos',
@@ -19,10 +12,9 @@ import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 })
 export class Contatos {
 
-  // captchaToken: string | null = null;
-
   loading = false;
   success = false;
+  buttonError = false;
 
   subjects = [
     'Orçamento',
@@ -32,15 +24,6 @@ export class Contatos {
     'Outros'
   ];
 
-  // ngAfterViewInit() {
-  //   if (typeof window !== 'undefined') {
-  //     window.onCaptchaSuccess = (token: string) => {
-  //       this.captchaToken = token;
-  //     };
-  //   }
-  // }
-
-  // FLOAT LABEL ACTIVE
   checkFilled(e: Event) {
     const input = e.target as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
     const parent = input.closest('.input-box');
@@ -52,19 +35,23 @@ export class Contatos {
     }
   }
 
-  // TELEFONE FORMATADO (XX) XXXXX-XXXX
+  // AUTO MASK TELEFONE INTELIGENTE
   formatPhone(e: Event) {
     const input = e.target as HTMLInputElement;
-
     let value = input.value.replace(/\D/g, '');
 
     if (value.length > 11) value = value.slice(0, 11);
 
-    if (value.length > 6) {
+    if (value.length >= 11) {
       value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
-    } else if (value.length > 2) {
+    } 
+    else if (value.length >= 10) {
+      value = value.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+    } 
+    else if (value.length > 2) {
       value = value.replace(/^(\d{2})(\d{0,5})$/, '($1) $2');
-    } else if (value.length > 0) {
+    } 
+    else if (value.length > 0) {
       value = value.replace(/^(\d{0,2})$/, '($1');
     }
 
@@ -72,13 +59,19 @@ export class Contatos {
     this.checkFilled(e);
   }
 
-  public sendEmail(e: Event) {
+  sendEmail(e: Event, formRef: any) {
     e.preventDefault();
 
-    // if (!this.captchaToken) {
-    //   alert('Confirme o reCAPTCHA antes de enviar.');
-    //   return;
-    // }
+    // INVALID FORM FEEDBACK
+    if (!formRef.valid) {
+      Object.values(formRef.controls).forEach((control: any) => {
+        control.markAsTouched();
+      });
+
+      this.buttonError = true;
+      setTimeout(() => this.buttonError = false, 600);
+      return;
+    }
 
     this.loading = true;
     this.success = false;
@@ -95,24 +88,20 @@ export class Contatos {
       this.loading = false;
       this.success = true;
 
-      // form.reset();
-      // this.captchaToken = null;
+      form.reset();
+      formRef.resetForm();
 
       document.querySelectorAll('.input-box').forEach(el => {
         el.classList.remove('filled');
       });
 
-      // if (window.grecaptcha) {
-      //   window.grecaptcha.reset();
-      // }
-
       setTimeout(() => {
         this.success = false;
       }, 3500);
     })
-    .catch((error) => {
+    .catch(() => {
       this.loading = false;
-      alert('Erro ao enviar: ' + (error as EmailJSResponseStatus).text);
+      alert('Erro ao enviar. Tente novamente.');
     });
   }
 }

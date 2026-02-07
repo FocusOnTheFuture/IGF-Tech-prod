@@ -32,7 +32,7 @@ img {
     width: 100%;
     max-height: 300px;
 
-    border-radius: 16px;
+    margin-top: 4rem
 }
 
 /* LINHA DO TEMPO BENEFICIOS */
@@ -343,6 +343,8 @@ li {
   display: flex;
   flex-direction: column;
   max-width: 915px;
+
+  margin-bottom: 20rem;
 }
 
 .imgIntegracoes {

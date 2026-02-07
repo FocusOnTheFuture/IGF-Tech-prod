@@ -1,10 +1,9 @@
 .contact-section {
   font-family: "Montserrat", sans-serif;
-  
   position: relative;
   z-index: 3;
   width: 100%;
-  padding: 80px 0; // espaçamento maior em telas grandes
+  padding: 80px 0;
 
   // BACKGROUND
   background-image: url('https://images.pexels.com/photos/9989522/pexels-photo-9989522.jpeg');
@@ -15,10 +14,7 @@
   &::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+    inset: 0;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 1;
   }
@@ -34,13 +30,11 @@
   .section-header {
     text-align: center;
     margin-bottom: 50px;
-    position: relative;
-    z-index: 2;
 
     h2 {
       color: #fff;
       font-weight: bold;
-      font-size: 2.8rem; // padrão acima de 1024px
+      font-size: 2.8rem;
 
       @media (max-width: 1024px) {
         font-size: 2.3rem;
@@ -49,14 +43,14 @@
 
     p {
       color: #fff;
-      font-size: 1.25rem; // padrão para telas grandes
+      font-size: 1.25rem;
 
       @media (max-width: 768px) {
         font-size: 1rem;
       }
 
       @media (max-width: 480px) {
-        font-size: 0.8rem; // menor ainda para mobile
+        font-size: 0.8rem;
       }
     }
   }
@@ -68,10 +62,9 @@
     width: 100%;
     max-width: 600px;
     margin: auto;
-
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 18px;
     position: relative;
     z-index: 2;
   }
@@ -80,22 +73,21 @@
   .input-box {
     position: relative;
     width: 100%;
-    margin-top: 12px;
+    margin-top: 6px;
 
     input,
     textarea,
     select {
       width: 100%;
-      padding: 8px 0;
+      padding: 16px 0 8px 0px;
       font-size: 16px;
-      margin: 12px 0 6px;
       border: none;
       border-bottom: 2px solid #333;
       outline: none;
       resize: none;
       background: transparent;
       color: #333;
-      transition: 0.3s ease;
+      transition: 0.25s ease;
 
       &:focus {
         border-color: #e91e63;
@@ -113,12 +105,12 @@
 
     label {
       position: absolute;
-      left: 0;
+      left: 28px;
       top: 18px;
       font-size: 16px;
       color: #666;
       pointer-events: none;
-      transition: 0.35s ease;
+      transition: 0.3s ease;
     }
 
     // FLOAT LABEL
@@ -132,35 +124,57 @@
     }
   }
 
-  // SELECT BOX ICON
-  .select-box {
-    select {
-      padding-right: 20px;
-    }
+  // ICON INSIDE INPUT
+  .icon-box {
+    padding-left: 28px;
+    position: relative;
+  }
 
-    &::after {
-      content: "▾";
-      position: absolute;
-      right: 0;
-      top: 18px;
-      font-size: 14px;
-      pointer-events: none;
-      color: #666;
-    }
+  .icon {
+    position: absolute;
+    left: 0;
+    top: 18px;
+    font-size: 16px;
+    opacity: 0.6;
+    pointer-events: none;
+    transition: 0.2s ease;
+  }
+
+  .input-box:focus-within .icon {
+    opacity: 1;
+    color: #e91e63;
+  }
+
+  // SELECT ARROW
+  .select-box::after {
+    content: "▾";
+    position: absolute;
+    right: 0;
+    top: 18px;
+    font-size: 14px;
+    color: #666;
+    pointer-events: none;
   }
 
   // TEXTAREA EXTRA
-  .input-box.textarea {
-    textarea {
-      padding-top: 12px;
-    }
+  .input-box.textarea textarea {
+    padding-top: 12px;
   }
 
-  // RECAPTCHA
-  .g-recaptcha {
-    margin-top: 18px;
-    transform: scale(0.95);
-    transform-origin: left;
+  // ERROR STATE
+  .input-box.error input,
+  .input-box.error textarea,
+  .input-box.error select {
+    border-bottom: 2px solid #e53935 !important;
+  }
+
+  .error-msg {
+    color: #e53935;
+    font-size: 12px;
+    position: absolute;
+    bottom: -16px;
+    left: 28px;
+    height: 14px;
   }
 
   // BUTTON
@@ -168,14 +182,18 @@
     width: 100%;
     background: #c9a23a;
     color: #FFF;
-    border: none;
+    border: 1px solid #c9a23a;
     cursor: pointer;
     padding: 14px;
     font-size: 18px;
     border-radius: 6px;
-    border: 1px solid #c9a23a;
     transition: 0.3s ease;
     margin-top: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 
     &:hover:not(:disabled) {
       background: #FFF;
@@ -188,12 +206,44 @@
     }
   }
 
-  // RESPONSIVO
+  // BUTTON ERROR FEEDBACK
+  button.error-btn {
+    background: #e53935 !important;
+    border-color: #e53935 !important;
+    animation: shake 0.35s ease;
+  }
+
+  // LOADER
+  .loader {
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255,255,255,0.4);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  // TOAST SUCCESS
+  .toast-success {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: slideIn 0.5s ease, fadeOut 0.5s ease 3s forwards;
+    z-index: 9999;
+  }
+
+  // RESPONSIVE
   @media (max-width: 991px) {
     padding: 50px 0;
 
     form {
-      padding: 30px !important;
+      padding: 30px;
     }
   }
 
@@ -201,7 +251,7 @@
     padding: 40px 0;
 
     form {
-      padding: 22px !important;
+      padding: 22px;
     }
 
     .input-box label {
@@ -211,9 +261,27 @@
     button {
       font-size: 16px;
     }
-
-    .g-recaptcha {
-      transform: scale(0.9);
-    }
   }
+}
+
+/* ANIMATIONS */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateX(40px); }
 }

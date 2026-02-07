@@ -1,66 +1,73 @@
 <section class="contact-section">
 
-   <div class="section-header">
-      <div class="container">
-        <h2>Entre em contato</h2>
-        <p>
-          Estamos à disposição para tirar suas dúvidas, receber sugestões ou atender qualquer solicitação. Preencha o formulário abaixo e nossa equipe retornará o mais breve possível.
-          Será um prazer falar com você!
-        </p>
-      </div>
+  <div class="section-header">
+    <div class="container">
+      <h2>Entre em contato</h2>
+      <p>
+        Estamos à disposição para tirar suas dúvidas, receber sugestões ou atender qualquer solicitação.
+        Preencha o formulário abaixo e nossa equipe retornará o mais breve possível.
+        Será um prazer falar com você!
+      </p>
     </div>
-    
+  </div>
+
   <div class="container">
 
-    <form (submit)="sendEmail($event)" #contactForm>
+    <form (submit)="sendEmail($event, contactForm)" #contactForm="ngForm" novalidate>
+
+      <!-- TOAST -->
+      <div class="toast-success" *ngIf="success">
+        Mensagem enviada com sucesso 🎉
+      </div>
 
       <!-- NOME -->
-      <div class="input-box">
-        <input type="text" name="name" required (input)="checkFilled($event)">
+      <div class="input-box icon-box" [class.error]="name.invalid && name.touched">
+        <span class="icon">👤</span>
+        <input type="text" name="name" ngModel required #name="ngModel" (input)="checkFilled($event)">
         <label>Nome completo</label>
+        <small class="error-msg" *ngIf="name.invalid && name.touched">Informe seu nome</small>
       </div>
 
       <!-- ASSUNTO -->
-      <div class="input-box select-box">
-        <select name="subject" required (change)="checkFilled($event)">
+      <div class="input-box select-box icon-box" [class.error]="subject.invalid && subject.touched">
+        <span class="icon">📌</span>
+        <select name="subject" ngModel required #subject="ngModel" (change)="checkFilled($event)">
           <option value="" disabled selected hidden></option>
-          <option *ngFor="let subject of subjects" [value]="subject">
-            {{ subject }}
-          </option>
+          <option *ngFor="let subject of subjects">{{ subject }}</option>
         </select>
         <label>Assunto</label>
+        <small class="error-msg" *ngIf="subject.invalid && subject.touched">Selecione um assunto</small>
       </div>
 
       <!-- EMAIL -->
-      <div class="input-box">
-        <input type="email" name="email" required (input)="checkFilled($event)">
+      <div class="input-box icon-box" [class.error]="email.invalid && email.touched">
+        <span class="icon">✉️</span>
+        <input type="email" name="email" ngModel required email #email="ngModel" (input)="checkFilled($event)">
         <label>Email</label>
+        <small class="error-msg" *ngIf="email.invalid && email.touched">Email inválido</small>
       </div>
 
       <!-- TELEFONE -->
-      <div class="input-box">
-        <input type="tel" name="phone" required (input)="formatPhone($event)">
+      <div class="input-box icon-box" [class.error]="phone.invalid && phone.touched">
+        <span class="icon">📞</span>
+        <input type="tel" name="phone" ngModel required #phone="ngModel" (input)="formatPhone($event)">
         <label>Telefone</label>
+        <small class="error-msg" *ngIf="phone.invalid && phone.touched">Telefone obrigatório</small>
       </div>
 
       <!-- MENSAGEM -->
-      <div class="input-box textarea">
-        <textarea name="message" required (input)="checkFilled($event)"></textarea>
+      <div class="input-box textarea icon-box" [class.error]="message.invalid && message.touched">
+        <span class="icon">💬</span>
+        <textarea name="message" ngModel required #message="ngModel" (input)="checkFilled($event)"></textarea>
         <label>Digite sua mensagem...</label>
+        <small class="error-msg" *ngIf="message.invalid && message.touched">Digite sua mensagem</small>
       </div>
 
-      <!-- RECAPTCHA -->
-      <!-- <div 
-        class="g-recaptcha" 
-        data-sitekey="6LeF2V8sAAAAAFDxS1HOfsfnj5Pu3jsrDRKMIH6o"
-        data-callback="onCaptchaSuccess">
-      </div> -->
-
       <!-- BOTÃO -->
-      <button type="submit" [disabled]="loading">
+      <button type="submit" [disabled]="loading" [class.error-btn]="buttonError">
         <span *ngIf="!loading && !success">Enviar</span>
-        <span *ngIf="loading">Enviando...</span>
         <span *ngIf="success">Mensagem enviada ✓</span>
+        <span class="loader" *ngIf="loading"></span>
       </button>
 
     </form>
