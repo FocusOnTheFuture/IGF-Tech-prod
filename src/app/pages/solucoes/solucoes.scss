@@ -39,8 +39,10 @@ img {
 
 .main-container{
     position: relative;
-
-    max-width: 1600px; // Evita que fique muito esticado em telas ultra-wide
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: clip; // evita vazamento moderno
 }
 /*creating line for timeline*/
 .main-container::after {

@@ -11,6 +11,8 @@ section {
 
     font-family: sans-serif;
     // background-color: black;
+
+    overflow-x: hidden;
 }
 
 .title {
@@ -251,6 +253,8 @@ p {
   width: 100%;
 
   position: relative;
+
+  padding-top: 0;
 }
 
 .solucao h1 {
