@@ -63,6 +63,21 @@
 
 /* ===== GRID CONTROLADO PELO TAMANHO ===== */
 
+@media (max-width: 1024px) {
+  .carousel-window {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .prev {
+    left: 60px;
+  }
+
+  .next {
+    right: 60px;
+  }
+}
+
 @media (min-width: 992px) {
   .slide {
     grid-template-columns: repeat(3, 1fr);

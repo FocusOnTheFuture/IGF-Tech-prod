@@ -9,7 +9,7 @@
 .about-section {
       // SE QUISER DEIXAR SEM O FUNDO BRANCO E O CAPACETE APARECENDO É SÓ TIRAR O POSITION: RELATIVE
     position: relative;
-    background-color: #fff;
+    background-color: #E5E5E5;
 
     padding-bottom: 7rem;
 }
@@ -101,12 +101,16 @@
     max-width: 420px;
     height: 280px;
   }
+  .about-section {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
   .about-section {
-    padding: 40px 0;
+    padding: 40px 3rem;
   }
 
   .col-left h1 {

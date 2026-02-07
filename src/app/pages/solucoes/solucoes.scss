@@ -1,3 +1,56 @@
+.hero-rfid {
+  position: relative;
+  width: 100%;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url('/SOLUCOES_INTELIGENTES_EM_RFID_E_IOT.jpg');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+/* OVERLAY AZUL IGF */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #0b2c4d 40%, rgba(11,44,77,0.6) 65%, rgba(11,44,77,0.15) 100%);
+  z-index: 1;
+}
+
+/* CONTEÚDO */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  // max-width: 700px;
+  padding: 0 20px;
+
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.05;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  margin-bottom: 14px;
+  margin-top: 4rem;
+
+  color: #c9a23a;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 1.4vw, 3rem);
+  opacity: 0.9;
+  // max-width: 520px;
+}
+
 .firstSection {
     background-color: #E5E5E5;
 
@@ -395,35 +448,81 @@ li {
 =========================== */
 @media (max-width: 1024px) {
 
+  .firstSection {
+    padding-left: 1.2rem;
+  }
+
   .main-container {
     max-width: 100%;
     padding: 0 1rem;
   }
 
+  // .main-container::after {
+  //   left: 32px;
+  // }
+
+    /* Linha da timeline no meio da tela */
   .main-container::after {
-    left: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
   }
 
+  /* Todos os cards ocupam 100% */
   .text-wrapper {
     width: 100%;
-    padding-left: 80px;
-    padding-right: 20px;
+    left: 0 !important;
+    padding: 3.5rem 1rem;
   }
 
-  .text-wrapper::after {
+  /* Centraliza TODOS os cards */
+  .left1,
+  .left2,
+  .left3,
+  .left4,
+  .right,
+  .right2,
+  .right3,
+  .right4 {
     left: 0;
+  }
+
+  /* Bolinha/ícone fica centralizado na linha */
+  .text-wrapper::after {
+    left: 50%;
+    transform: translateX(-50%);
     right: auto;
   }
 
-  .right,
-  .right3 {
-    left: 0;
-  }
-
+  /* Cards ficam visualmente centralizados */
   .content,
   .content_right {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
     box-shadow: 0px 10px 15px rgba(0,0,0,0.6);
   }
+
+  // .text-wrapper {
+  //   width: 100%;
+  //   padding-left: 80px;
+  //   padding-right: 20px;
+  // }
+
+  // .text-wrapper::after {
+  //   left: 0;
+  //   right: auto;
+  // }
+
+  // .right,
+  // .right3 {
+  //   left: 0;
+  // }
+
+  // .content,
+  // .content_right {
+  //   box-shadow: 0px 10px 15px rgba(0,0,0,0.6);
+  // }
 
   .content h3 {
     font-size: 1.6rem;
@@ -436,6 +535,9 @@ li {
 
   .card {
     padding: 3rem 1rem;
+
+    margin-left: 3rem;
+    margin-right: 3rem;
   }
 
   .cardText {
@@ -472,6 +574,10 @@ li {
 =========================== */
 @media (max-width: 768px) {
 
+  .firstSection {
+    padding-top: 1.25rem;
+  }
+
   /* Linha da timeline no meio da tela */
   .main-container::after {
     left: 50%;
@@ -483,7 +589,7 @@ li {
   .text-wrapper {
     width: 100%;
     left: 0 !important;
-    padding: 2rem 1rem;
+    padding: 3.5rem 1rem;
   }
 
   /* Centraliza TODOS os cards */
@@ -543,5 +649,26 @@ li {
 
   .content ul {
     text-align: left;
+  }
+  .hero-rfid {
+    min-height: 360px;
+    background-position: center;
+  }
+
+  .hero-content {
+    padding-top: 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content p {
+    font-size: 1.25rem;
+  }
+
+  .card {
+    margin-left: 3rem;
+    margin-right: 3rem;
   }
 }
