@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carousel-apresentation',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './carousel-apresentation.scss',
 })
 export class CarouselApresentation {
+  constructor(private router: Router) {}
   currentIndex = 0;
 
   slides = [
@@ -14,21 +16,21 @@ export class CarouselApresentation {
       description: 'Visibilidade em tempo real, inventário automatizado e redução de perdas.',
       buttonText: 'Orçamento',
       image: '/rastreamento.jpeg',
-      action: () => this.onClick('site')
+      route: '/contatos'
     },
     {
       title: 'Segurança Inteligente para Pessoas e Processos',
       description: 'Controle de acesso com verificação automática de treinamentos.',
       buttonText: 'Soluções',
       image: '/qualidade.jpeg',
-      action: () => this.onClick('portfolio')
+      route: '/solucoes'
     },
     {
       title: 'Controle de Acesso em Subestações Elétricas',
       description: 'Acesso liberado somente para eletricistas NR10.',
       buttonText: 'Fale conosco',
       image: '/controle.jpeg',
-      action: () => this.onClick('contato')
+      externalUrl: 'https://wa.me/5531999926910?text=Olá,%20gostaria%20de%20mais%20informações!'
     }
   ];
 
@@ -46,7 +48,13 @@ export class CarouselApresentation {
     this.currentIndex = index;
   }
 
-  onClick(type: string) {
-    console.log('Botão clicado:', type);
+  onClick(slide: any) {
+      if (slide.route) {
+        this.router.navigate([slide.route]);
+      }
+
+    if (slide.externalUrl) {
+      window.open(slide.externalUrl, '_blank');
+    }
   }
 }

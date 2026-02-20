@@ -299,7 +299,7 @@ p {
 /* Responsividade */
 @media (max-width: 1024px) {
   .solucao {
-    padding: 4rem 3rem;
+    padding: 0rem 3rem 4rem 3rem;
   }
 
   .solucao h1 {
@@ -327,5 +327,16 @@ p {
 
   .solucao p {
     text-align: left;
+  }
+
+  .beneficios {
+    gap: 3rem;
+    
+    padding-bottom: 6rem;
+    padding-top: 0rem;
+  }
+
+  .titleBeneficios {
+    padding-top: 0rem;
   }
 }

@@ -59,6 +59,11 @@
 
 /* --- MOBILE --- */
 @media (max-width: 576px) {
+  .title {
+    margin-bottom: 2rem;
+    margin-top: 0;
+  }
+
   .title h1 {
     font-size: 1.9rem;
     letter-spacing: 0.6px;
@@ -67,5 +72,11 @@
   .title h1::after {
     width: 90%;
     height: 2px;
+  }
+}
+
+@media (max-width: 444px) {
+  .title h1 {
+    font-size: 1.7rem;
   }
 }
